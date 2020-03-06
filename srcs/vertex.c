@@ -6,7 +6,7 @@
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:06:22 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 01:11:12 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/07 01:14:12 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ t_vertex	*vertex_new(float x, float y, float z, float w, t_color *color)
 	ret->z = z;
 	ret->w = w;
 	ret->color = color;
+	ret->new = vertex_new;
 	return (ret);
 }
