@@ -28,5 +28,7 @@ $(NAME): $(MODULE_OBJ) $(OBJ) $(C_OBJ)
 	swiftc $(INC) -parse-as-library -c $< -o $@ -emit-module -module-name $(patsubst %.swift,%,$<) -module-link-name $(patsubst %.swift,%,$<)
 
 clean:
-	rm -f $(NAME) $(OBJ) $(MODULE_OBJ) $(C_OBJ) *.swiftdoc *~
+	rm -f $(OBJ) $(MODULE_OBJ) $(C_OBJ) *~
 
+fclean: clean
+	rm -f $(NAME) *.swiftdoc
