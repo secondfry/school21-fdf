@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:21:31 by oadhesiv          #+#    #+#             */
-/*   Updated: 2019/07/05 16:51:14 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/06 23:31:44 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@
 ** Including `string.h` as norminette doesn't like size_t typedef
 */
 # include <string.h>
+
+/*
+** Seems like the only reasonable thing to do
+*/
+# define ENOMEM		12
 
 /*
 ** Wonderful typedefs
@@ -207,5 +212,6 @@ char			*ft_ltoa(long n);
 int				ft_isspace(int c);
 long			ft_atol(const char *str);
 long			ft_strtol(const char *str, char **endptr, int base);
+void			ft_ptr_check(void *ptr, char *msg, ...);
 
 #endif
