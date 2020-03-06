@@ -6,7 +6,7 @@
 #    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/07 00:37:32 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/07 00:55:17 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ LIB_DIR = ./libft
 MLX = libmlx.dylib
 MLX_DIR = ./minilibx_mms_20191025_beta
 
-SRC_FILES = main.c
+SRC_FILES =	main.c \
+			color.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))
