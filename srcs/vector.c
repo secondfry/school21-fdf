@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vertex.h                                           :+:      :+:    :+:   */
+/*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 01:09:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 01:31:27 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/07 01:11:58 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/03/07 01:17:05 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VERTEX_H
-# define VERTEX_H
 
-# include "defines.h"
 
-t_vertex	*vertex_new(float *x, float *y, float *z, ...);
+typedef struct	s_vector {
+	float x;
+	float y;
+	float z;
+	float w;
+	struct s_vector	*(*new)(t_vertex *, ...);
+}				t_vector;
 
-#endif
+

@@ -6,7 +6,7 @@
 #    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/07 01:10:56 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/07 17:51:52 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,11 @@ CFLAGS_ERRORS = -Wall -Wextra -Werror
 CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)
-CFLAGS_DEBUG = -g -fno-omit-frame-pointer -fsanitize=address
+CFLAGS_DEBUG = -g -fno-omit-frame-pointer
 CFLAGS +=	$(CFLAGS_INTERNAL) \
 			$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
 			$(CFLAGS_DEPENDENCIES) $(CFLAGS_INCLUDES)
 
-LDFLAGS_DEBUG = -fsanitize=address
 LDFLAGS +=	$(LDFLAGS_INTERNAL) \
 			-L$(LIB_DIR) -lft -L$(MLX_DIR) -lmlx
 
