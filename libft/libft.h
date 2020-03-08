@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:21:31 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/06 23:31:44 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/08 02:06:09 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,6 +212,6 @@ char			*ft_ltoa(long n);
 int				ft_isspace(int c);
 long			ft_atol(const char *str);
 long			ft_strtol(const char *str, char **endptr, int base);
-void			ft_ptr_check(void *ptr, char *msg, ...);
+void			ft_ptr_check(void *ptr, char *msg, size_t args, ...);
 
 #endif

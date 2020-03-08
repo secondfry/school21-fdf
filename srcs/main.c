@@ -36,17 +36,15 @@ int		main(int argc, char** argv) {
 	}
 
 	t_color *a = color_new(255, 255, 255);
-	// t_color *f = color_new(100, 200, 0);
-	// t_color *g = color_new(50, 150, 0);
-	// t_color *e = a->sub(a, f);
-	// t_color *h = e->add(e, g);
-	// t_color *i = h->mult(h, 0.1);
+	t_color *f = color_new(100, 200, 0);
+	t_color *g = color_new(50, 150, 0);
+	t_color *e = color_sub(a, f);
+	t_color *h = color_add(e, g);
+	t_color *i = color_mult(h, 0.1);
 
-	// float b0 = 0;
-	// float c0 = 1;
-	// t_vertex *b = vertex_new(&b0, &b0, &b0);
-	// t_vertex *c = vertex_new(&b0, &b0, &b0, &c0);
-	// t_vertex *d = vertex_new(&b0, &b0, &b0, &c0, a);
+	t_vertex *b = vertex_new(3, 0, 0, 0);
+	t_vertex *c = vertex_new(4, 0, 0, 0, 1);
+	t_vertex *d = vertex_new(5, 0, 0, 0, 1, i);
 
 	mlx_loop(mlx);
 

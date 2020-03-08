@@ -32,3 +32,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) *.swiftdoc
+
+re: fclean clean all

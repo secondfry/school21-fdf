@@ -13,8 +13,9 @@
 #ifndef VERTEX_H
 # define VERTEX_H
 
+# include <stdlib.h>
 # include "defines.h"
 
-t_vertex	*vertex_new(float *x, float *y, float *z, ...);
+t_vertex	*vertex_new(size_t args, double x, double y, double z, ...);
 
 #endif

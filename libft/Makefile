@@ -51,7 +51,8 @@ CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_SO = -fPIC -shared
 CFLAGS_DEBUG = -g -fno-omit-frame-pointer -fsanitize=address
-CFLAGS = $(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) $(CFLAGS_DEPENDENCIES)
+CFLAGS_FINAL =	$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
+				$(CFLAGS_DEPENDENCIES) $(CFLAGS)
 
 NAME = libft.a
 DYNN = libft.so
@@ -73,7 +74,7 @@ $(DYNN): $(OBJECTS)
 
 -include $(DEPS)
 objs/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS_FINAL) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS)

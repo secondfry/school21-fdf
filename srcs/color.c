@@ -22,16 +22,12 @@ t_color	*color_new(t_byte red, t_byte green, t_byte blue)
 	ret->red = red;
 	ret->green = green;
 	ret->blue = blue;
-	ret->new = color_new;
-	ret->add = color_add;
-	ret->sub = color_sub;
-	ret->mult = color_mult;
 	return (ret);
 }
 
 t_color	*color_add(t_color *self, t_color *other)
 {
-	return (self->new(
+	return (color_new(
 		self->red + other->red,
 		self->green + other->green,
 		self->blue + other->blue
@@ -40,7 +36,7 @@ t_color	*color_add(t_color *self, t_color *other)
 
 t_color	*color_sub(t_color *self, t_color *other)
 {
-	return (self->new(
+	return (color_new(
 		self->red - other->red,
 		self->green - other->green,
 		self->blue - other->blue
@@ -49,9 +45,19 @@ t_color	*color_sub(t_color *self, t_color *other)
 
 t_color	*color_mult(t_color *self, float factor)
 {
-	return (self->new(
+	return (color_new(
 		self->red * factor,
 		self->green * factor,
 		self->blue * factor
 	));
+}
+
+void	color_print(t_color *self)
+{
+	ft_putstr("Color ");
+	ft_putlong((long)self);
+	ft_putstr(" { red: ")
+	ft_putnbr(self->red);
+	ft_putstr(", green: ");
+	ft_
 }

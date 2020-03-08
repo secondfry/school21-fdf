@@ -12,33 +12,34 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include "libft.h"
 #include "color.h"
 #include "vertex.h"
 
-t_vertex	*vertex_new(float *x, float *y, float *z, ...)
+t_vertex	*vertex_new(size_t args, double x, double y, double z, ...)
 {
 	t_vertex	*ret;
 	va_list		ap;
-	float		*w;
+	double		w;
 	t_color		*color;
 
 	ret = (t_vertex *)malloc(sizeof(t_vertex));
-	ret->x = *x;
-	ret->y = *y;
-	ret->z = *z;
+	ret->x = x;
+	ret->y = y;
+	ret->z = z;
 	ret->w = 1;
 	ret->color = color_new(255, 255, 255);
-	va_start(ap, z);
-	w = va_arg(ap, float *);
-	if (!w)
+	if (args < 4)
 		return (ret);
-	ret->w = *w;
+	va_start(ap, z);
+	w = va_arg(ap, double);
+	ret->w = w;
 	color = va_arg(ap, t_color *);
 	if (!color)
 		return (ret);
 	ft_memdel((void **)&(ret->color));
 	ret->color = color;
-	ret->new = vertex_new;
 	va_end(ap);
 	return (ret);
 }
