@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 15:59:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2019/06/01 15:40:22 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 22:08:20 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!ap)
+	if (!ap && !*ap)
 		return ;
 	free(*ap);
 	*ap = (void *)0;

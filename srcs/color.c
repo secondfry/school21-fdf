@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 00:44:50 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 21:09:49 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 22:06:59 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,16 @@ t_color	*color_mult(t_color *self, float factor)
 		self->green * factor,
 		self->blue * factor
 	));
+}
+
+t_color	*color_copy(t_color *self)
+{
+	return (color_new(self->red, self->green, self->blue));
+}
+
+void	color_free(t_color *self)
+{
+	ft_memdel((void**)&self);
 }
 
 void	color_print(t_color *self)

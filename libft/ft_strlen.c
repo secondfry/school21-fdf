@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:11:17 by oadhesiv          #+#    #+#             */
-/*   Updated: 2019/04/20 17:19:38 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 22:21:21 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void		*check_ulong(t_ulong *data)
 	return ((void *)0);
 }
 
-size_t			ft_strlen(const char *s)
+size_t			ft_strlen_good(const char *s)
 {
 	void	*ret;
 	void	*save;
@@ -98,4 +98,14 @@ size_t			ft_strlen(const char *s)
 		str_ulong++;
 	}
 	return (0);
+}
+
+size_t			ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }
