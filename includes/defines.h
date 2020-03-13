@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 01:31:41 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:53:52 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,10 @@ typedef struct	s_vertex {
 	double			w;
 	t_color			*color;
 }				t_vertex;
+
+typedef struct	s_vector {
+	t_vertex		*dest;
+	t_vertex		*orig;
+}				t_vector;
 
 #endif

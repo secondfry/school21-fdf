@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
+#    By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/07 17:51:52 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/13 20:59:25 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIB = libft.a
 LIB_DIR = ./libft
 
 SRC_FILES =	main.c \
-			color.c vertex.c
+			color.c vertex.c vector.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))

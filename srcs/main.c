@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 20:49:25 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 21:10:09 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "defines.h"
 #include "color.h"
 #include "vertex.h"
+#include "vector.h"
 
 int		main(int argc, char** argv) {
 	void	*mlx;
@@ -42,20 +43,26 @@ int		main(int argc, char** argv) {
 	t_color *h = color_add(e, g);
 	t_color *i = color_mult(h, 0.1);
 
-	color_print(a);
-	color_print(f);
-	color_print(g);
-	color_print(e);
-	color_print(h);
-	color_print(i);
+	color_print(a); ft_putchar('\n');
+	color_print(f); ft_putchar('\n');
+	color_print(g); ft_putchar('\n');
+	color_print(e); ft_putchar('\n');
+	color_print(h); ft_putchar('\n');
+	color_print(i); ft_putchar('\n');
 
-	t_vertex *b = vertex_new(3, 1, 2, 3);
-	t_vertex *c = vertex_new(4, 4, 5, 6, 7.0);
-	t_vertex *d = vertex_new(5, 8, 9, 10, 11.0, i);
+	t_vertex *b = vertex_new(0, 1, 2, 3);
+	t_vertex *c = vertex_new(1, 4, 5, 6, 7.0);
+	t_vertex *d = vertex_new(2, 8, 9, 10, 11.0, i);
 
-	vertex_print(b);
-	vertex_print(c);
-	vertex_print(d);
+	vertex_print(b); ft_putchar('\n');
+	vertex_print(c); ft_putchar('\n');
+	vertex_print(d); ft_putchar('\n');
+
+	t_vector *va = vector_new(0, b);
+	t_vector *vb = vector_new(1, c, d);
+
+	vector_print(va); ft_putchar('\n');
+	vector_print(vb); ft_putchar('\n');
 
 	mlx_loop(mlx);
 
