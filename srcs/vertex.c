@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vertex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:06:22 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 22:18:45 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:25:07 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ t_vertex	*vertex_new(size_t args, double x, double y, double z, ...)
 
 t_vertex	*vertex_copy(t_vertex *self)
 {
-	return (vertex_new(2, self->x, self->y, self->z, self->w, self->color));
+	return (vertex_new(
+		2,
+		self->x,
+		self->y,
+		self->z,
+		self->w,
+		self->color
+	));
 }
 
 void		vertex_free(t_vertex *self)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:11:58 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 22:10:00 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/14 00:58:27 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ t_vector	*vector_new(size_t args, t_vertex *dest, ...)
 	va_list		ap;
 	t_vertex	*orig;
 
-
 	ret = (t_vector *)malloc(sizeof(t_vector));
-
 	ret->dest = vertex_copy(dest);
 	ret->orig = vertex_new(1, 0, 0, 0, 1);
 	if (args < 1)
@@ -46,25 +44,44 @@ double		vector_magnitude(t_vector *self)
 	leny = self->dest->y - self->orig->y;
 	lenz = self->dest->z - self->orig->z;
 	lenw = self->dest->w - self->orig->w;
-	return sqrt(lenx * lenx + leny * leny + lenz * lenz + lenw * lenw);
+	return (sqrt(lenx * lenx + leny * leny + lenz * lenz + lenw * lenw));
 }
 
 t_vector	*vector_base(t_vector *self)
 {
-	double newx;
-	double newy;
-	double newz;
-	double neww;
+	double		new[4];
+	t_vertex	*dest;
+	t_vertex	*orig;
+	t_vector	*ret;
 
-	newx = self->dest->x - self->orig->x;
-	newy = self->dest->y - self->orig->y;
-	newz = self->dest->z - self->orig->z;
-	neww = self->dest->w - self->orig->w;
-	return vector_new(
-		1,
-		vertex_new(2, newx, newy, newz, neww, self->dest->color),
-		vertex_new(2, 0.0, 0.0, 0.0, 1.0, self->orig->color)
+	new[0] = self->dest->x - self->orig->x;
+	new[1] = self->dest->y - self->orig->y;
+	new[2] = self->dest->z - self->orig->z;
+	new[3] = self->dest->w - self->orig->w;
+	dest = vertex_new(
+		2,
+		new[0],
+		new[1],
+		new[2],
+		new[3],
+		self->dest->color
 	);
+	orig = vertex_new(
+		2,
+		0.0,
+		0.0,
+		0.0,
+		1.0,
+		self->orig->color
+	);
+	ret = vector_new(
+		1,
+		dest,
+		orig
+	);
+	vertex_free(orig);
+	vertex_free(dest);
+	return (ret);
 }
 
 t_vector	*vector_normalize(t_vector *self)
@@ -72,21 +89,34 @@ t_vector	*vector_normalize(t_vector *self)
 	double		size;
 	t_vector	*base;
 	t_vector	*ret;
+	t_vertex	*dest;
+	t_vertex	*orig;
 
 	base = vector_base(self);
 	size = vector_magnitude(self);
+	dest = vertex_new(
+		2,
+		base->dest->x / size,
+		base->dest->y / size,
+		base->dest->z / size,
+		base->dest->w / size,
+		self->dest->color
+	);
+	orig = vertex_new(
+		2,
+		0.0,
+		0.0,
+		0.0,
+		1.0,
+		self->orig->color
+	);
 	ret = vector_new(
 		1,
-		vertex_new(
-			2,
-			base->dest->x / size,
-			base->dest->y / size,
-			base->dest->z / size,
-			base->dest->w / size,
-			self->dest->color
-		),
-		vertex_new(2, 0.0, 0.0, 0.0, 1.0, self->orig->color)
+		dest,
+		orig
 	);
+	vertex_free(orig);
+	vertex_free(dest);
 	vector_free(base);
 	return (ret);
 }
@@ -95,20 +125,33 @@ t_vector	*vector_add(t_vector *self, t_vector *other)
 {
 	t_vector	*norm;
 	t_vector	*ret;
+	t_vertex	*dest;
+	t_vertex	*orig;
 
-	norm = vector_normalize(other);
+	norm = vector_base(other);
+	dest = vertex_new(
+		2,
+		self->dest->x + norm->dest->x,
+		self->dest->y + norm->dest->y,
+		self->dest->z + norm->dest->z,
+		self->dest->w + norm->dest->w,
+		self->dest->color
+	);
+	orig = vertex_new(
+		2,
+		0.0,
+		0.0,
+		0.0,
+		1.0,
+		self->orig->color
+	);
 	ret = vector_new(
 		1,
-		vertex_new(
-			2,
-			self->dest->x + norm->dest->x,
-			self->dest->y + norm->dest->y,
-			self->dest->z + norm->dest->z,
-			self->dest->w + norm->dest->w,
-			self->dest->color
-		),
-		vertex_new(2, 0.0, 0.0, 0.0, 1.0, self->orig->color)
+		dest,
+		orig
 	);
+	vertex_free(orig);
+	vertex_free(dest);
 	vector_free(norm);
 	return (ret);
 }
@@ -131,25 +174,34 @@ t_vector	*vector_opposite(t_vector *self)
 
 t_vector	*vector_scalar_product(t_vector *self, double factor)
 {
-	return vector_new(
-		1,
-		vertex_new(
-			2,
-			self->dest->x * factor,
-			self->dest->y * factor,
-			self->dest->z * factor,
-			self->dest->w * factor,
-			self->dest->color
-		),
-		vertex_new(
-			2,
-			self->orig->x * factor,
-			self->orig->y * factor,
-			self->orig->z * factor,
-			self->orig->w * factor,
-			self->orig->color
-		)
+	t_vertex	*dest;
+	t_vertex	*orig;
+	t_vector	*ret;
+
+	dest = vertex_new(
+		2,
+		self->dest->x * factor,
+		self->dest->y * factor,
+		self->dest->z * factor,
+		self->dest->w * factor,
+		self->dest->color
 	);
+	orig = vertex_new(
+		2,
+		self->orig->x * factor,
+		self->orig->y * factor,
+		self->orig->z * factor,
+		self->orig->w * factor,
+		self->orig->color
+	);
+	ret = vector_new(
+		1,
+		dest,
+		orig
+	);
+	vertex_free(orig);
+	vertex_free(dest);
+	return (ret);
 }
 
 double		vector_dot_product(t_vector *self, t_vector *other)
@@ -158,8 +210,8 @@ double		vector_dot_product(t_vector *self, t_vector *other)
 	t_vector	*vb;
 	double		ret;
 
-	va = vector_normalize(self);
-	vb = vector_normalize(other);
+	va = vector_base(self);
+	vb = vector_base(other);
 	ret =
 		va->dest->x * vb->dest->x +
 		va->dest->y * vb->dest->y +
