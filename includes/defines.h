@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 20:53:52 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 23:31:19 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,5 @@
 # define TITLE "FDF"
 
 # include "libft.h"
-
-typedef struct	s_color {
-	t_byte			red;
-	t_byte			green;
-	t_byte			blue;
-}				t_color;
-
-typedef struct	s_vertex {
-	double			x;
-	double			y;
-	double			z;
-	double			w;
-	t_color			*color;
-}				t_vertex;
-
-typedef struct	s_vector {
-	t_vertex		*dest;
-	t_vertex		*orig;
-}				t_vector;
 
 #endif
