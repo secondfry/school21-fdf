@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 23:21:15 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/08 02:05:55 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:41:25 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_ptr_check(void *ptr, char *msg, size_t args, ...)
 		return ;
 	ft_putendl_fd(msg, 2);
 	ft_memdel(&ptr);
-	va_start(ap, msg);
+	va_start(ap, args);
 	while (args)
 	{
 		tmp = va_arg(ap, void *);
