@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vertex.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:09:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 01:31:27 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:45:49 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 # include "defines.h"
 
 t_vertex	*vertex_new(size_t args, double x, double y, double z, ...);
+void		vertex_print(t_vertex *self);
 
 #endif

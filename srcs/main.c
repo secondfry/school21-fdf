@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 20:39:40 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:49:25 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,13 @@ int		main(int argc, char** argv) {
 	color_print(h);
 	color_print(i);
 
-	t_vertex *b = vertex_new(3, 0, 0, 0);
-	t_vertex *c = vertex_new(4, 0, 0, 0, 1);
-	t_vertex *d = vertex_new(5, 0, 0, 0, 1, i);
+	t_vertex *b = vertex_new(3, 1, 2, 3);
+	t_vertex *c = vertex_new(4, 4, 5, 6, 7.0);
+	t_vertex *d = vertex_new(5, 8, 9, 10, 11.0, i);
+
+	vertex_print(b);
+	vertex_print(c);
+	vertex_print(d);
 
 	mlx_loop(mlx);
 
