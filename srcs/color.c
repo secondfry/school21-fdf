@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 00:44:50 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 17:53:00 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:41:57 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,11 @@ void	color_print(t_color *self)
 {
 	ft_putstr("Color ");
 	ft_putlong((long)self);
-	ft_putstr(" { red: ")
+	ft_putstr(" { red: ");
 	ft_putnbr(self->red);
 	ft_putstr(", green: ");
-	ft_
+	ft_putnbr(self->green);
+	ft_putstr(", blue: ");
+	ft_putnbr(self->blue);
+	ft_putstr(" }\n");
 }

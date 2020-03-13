@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/07 13:53:10 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/13 20:39:40 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ int		main(int argc, char** argv) {
 	t_color *e = color_sub(a, f);
 	t_color *h = color_add(e, g);
 	t_color *i = color_mult(h, 0.1);
+
+	color_print(a);
+	color_print(f);
+	color_print(g);
+	color_print(e);
+	color_print(h);
+	color_print(i);
 
 	t_vertex *b = vertex_new(3, 0, 0, 0);
 	t_vertex *c = vertex_new(4, 0, 0, 0, 1);
