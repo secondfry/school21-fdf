@@ -6,7 +6,7 @@
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/14 00:56:04 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/15 00:47:07 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,24 @@ int		main(int argc, char** argv) {
 	printf("Magnitude: %f\n", vector_magnitude(vh));
 
 	double dp = vector_dot_product(va, vb);
-	printf("%f\n", dp);
+	printf("dot product: %f\n", dp);
+
+	double cs = vector_cos(va, vb);
+	printf("cosine: %f\n", cs);
+
+	printf("\n========== Actually doing graphics ==========\n");
+	t_color *red = color_new(255, 0, 0);
+	t_color *green = color_new(0, 255, 0);
+	t_color *blue = color_new(0, 0, 255);
+	t_vertex *A = vertex_new(2, 1, 0, 0, 1.0, red);
+	t_vertex *B = vertex_new(2, 0, 1, 0, 1.0, green);
+	t_vertex *C = vertex_new(2, 0, 0, 1, 1.0, blue);
+	t_vector *AB = vector_new(1, B, A);
+	t_vector *BC = vector_new(1, C, B);
+	t_vector *CA = vector_new(1, A, C);
+	ft_putstr("AB: "); vector_print(AB); ft_putchar('\n');
+	ft_putstr("BC: "); vector_print(BC); ft_putchar('\n');
+	ft_putstr("CA: "); vector_print(CA); ft_putchar('\n');
 
 	// mlx_loop(mlx);
 
@@ -132,6 +149,16 @@ int		main(int argc, char** argv) {
 	vector_free(vf);
 	vector_free(vg);
 	vector_free(vh);
+
+	color_free(red);
+	color_free(green);
+	color_free(blue);
+	vertex_free(A);
+	vertex_free(B);
+	vertex_free(C);
+	vector_free(AB);
+	vector_free(BC);
+	vector_free(CA);
 
 	return (ft_atoi(argv[argc - 1]));
 }

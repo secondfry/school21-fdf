@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 20:52:38 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 21:59:40 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/14 12:50:07 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_vector	*vector_sub(t_vector *self, t_vector *other);
 t_vector	*vector_opposite(t_vector *self);
 t_vector	*vector_scalar_product(t_vector *self, double factor);
 double		vector_dot_product(t_vector *self, t_vector *other);
+double		vector_cos(t_vector *self, t_vector *other);
 void		vector_free(t_vector *self);
 void		vector_print(t_vector *self);
 

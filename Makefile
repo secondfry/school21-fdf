@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+         #
+#    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/13 20:59:25 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/15 00:45:53 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

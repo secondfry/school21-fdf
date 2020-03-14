@@ -6,7 +6,7 @@
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 01:11:58 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/14 00:58:27 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/14 13:05:31 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,22 @@ double		vector_dot_product(t_vector *self, t_vector *other)
 		va->dest->w * vb->dest->w;
 	vector_free(va);
 	vector_free(vb);
+	return (ret);
+}
+
+double		vector_cos(t_vector *self, t_vector *other)
+{
+	return (
+		vector_dot_product(self, other)
+		/ vector_magnitude(self)
+		/ vector_magnitude(other)
+	);
+}
+
+t_vector	*vector_cross_product(t_vector *self, t_vector *other)
+{
+	t_vector	*ret;
+
 	return (ret);
 }
 
