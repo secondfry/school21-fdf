@@ -6,7 +6,7 @@
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 17:20:13 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/15 17:25:51 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,49 +81,32 @@ int     main(int argc, char** argv) {
 	t_matrix_4	a = matrix_on_matrix(projection, rot_mat);
 	t_matrix_4	b = matrix_on_matrix(a, trs);
 
-
-	t_vector_4	zaloopa[100];
+	t_vector_4	result[100];
 	for (size_t i = 0; i < 8; i++)
 	{
-		t_vector_4	tmp[10];
+		result[i] = matrix_on_vector(b, points[i]);
 
-		tmp[0] = matrix_on_vector(trs, points[i]);
-		tmp[1] = matrix_on_vector(rot_mat, tmp[0]);
-		tmp[2] = matrix_on_vector(projection, tmp[1]);
-		tmp[3] = (float *)ft_memalloc(sizeof(float) * 4);
-		tmp[3][0] = tmp[2][0] + WIDTH / 2;
-		tmp[3][1] = tmp[2][1] * (-1) + HEIGHT / 2;
-		zaloopa[i] = tmp[2];
-
-		t_vector_4	point = tmp[3];
+		t_vector_4	point = (float *)ft_memalloc(sizeof(float) * 4);
+		point[0] = result[i][0] + WIDTH / 2;
+		point[1] = result[i][1] * (-1) + HEIGHT / 2;
 #ifdef LOG_DEBUG
 		t_vertex_4_print(points[i]);
-		t_vertex_4_print(tmp[0]);
-		t_vertex_4_print(tmp[1]);
-		t_vertex_4_print(tmp[2]);
-		t_vertex_4_print(tmp[3]);
+		t_vertex_4_print(result[i]);
+		t_vertex_4_print(point)
 #endif
-		ft_memdel((void**)&tmp[0]);
-		ft_memdel((void**)&tmp[1]);
-		ft_memdel((void**)&tmp[2]);
 		if (point[0] < 0 || point[0] > WIDTH) {
-			ft_memdel((void**)&tmp[3]);
-			ft_memdel((void**)&tmp);
+			ft_memdel((void**)&point);
 			continue;
 		}
 		if (point[1] < 0 || point[1] >= HEIGHT) {
-			ft_memdel((void**)&tmp[3]);
-			ft_memdel((void**)&tmp);
+			ft_memdel((void**)&point);
 			continue;
 		}
-		size_t x = point[0];
-		size_t y = point[1];
 #ifdef LOG_INFO
-		printf("Result { x: %zu, y: %zu }\n", x, y);
+		printf("Result { x: %zu, y: %zu }\n", (size_t)(point[0]), (size_t)(point[1]));
 #endif
-		data[size_line * y + x] = 0x00FFFFFF;
-		ft_memdel((void**)&tmp[3]);
-		ft_memdel((void**)&tmp);
+		data[size_line * (size_t)(point[1]) + (size_t)(point[0])] = 0x00FFFFFF;
+		ft_memdel((void**)&point);
 	}
 
 	mlx_put_image_to_window(mlx, win, img, 0, 0);
