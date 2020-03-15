@@ -171,3 +171,4 @@ fastlane/test_output
 ###Personal###
 /assets/
 fdf
+*.swiftmodule

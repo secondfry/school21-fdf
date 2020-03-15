@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   quaterion.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 19:49:29 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 17:08:29 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/15 01:08:07 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/03/15 17:06:50 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef QUATERION_H
+# define QUATERION_H
 
-# define LOG_INFO
-
-# include <stdio.h>
 # include <math.h>
-# include "mlx.h"
 # include "libft.h"
 # include "defines.h"
-# include "matrix_factory.h"
-# include "matrix_utils.h"
-# include "quaterion.h"
+
+t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z);
+t_matrix_4	quaternion_to_matrix(t_quaterion self);
 
 #endif

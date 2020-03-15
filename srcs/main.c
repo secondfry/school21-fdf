@@ -3,165 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 00:00:05 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/15 17:20:13 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-typedef float	*t_matrix_4;
-typedef float	*t_vector_4;
-typedef float	*t_quaterion;
-
 void		t_vertex_4_print(t_vector_4 self);
-
-/*
-** http://www.opengl-tutorial.org/assets/faq_quaternions/index.html
-*/
-
-t_matrix_4	matrix_new_identity()
-{
-	t_matrix_4	ret;
-
-	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	ret[0] = ret[5] = ret[10] = ret[15] = 1;
-	return (ret);
-}
-
-t_matrix_4	martix_new_translation(float x, float y, float z)
-{
-	t_matrix_4	ret;
-
-	ret = matrix_new_identity();
-	ret[3] = x;
-	ret[7] = y;
-	ret[11] = z;
-	return (ret);
-}
-
-t_matrix_4	matrix_new_scale(float factor_x, float factor_y, float factor_z)
-{
-	t_matrix_4  ret;
-
-	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	ret[0] = factor_x;
-	ret[5] = factor_y;
-	ret[10] = factor_z;
-	ret[15] = 1;
-	return (ret);
-}
-
-t_matrix_4	matrix_new_rotation(float angle_x, float angle_y, float angle_z)
-{
-	t_matrix_4  ret;
-	float       h[8];
-
-	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	h[0] = cos(angle_x);
-	h[1] = sin(angle_x);
-	h[2] = cos(angle_y);
-	h[3] = sin(angle_y);
-	h[4] = cos(angle_z);
-	h[5] = sin(angle_z);
-	h[6] = h[0] * h[3];
-	h[7] = h[1] * h[3];
-	ret[0] = h[2] * h[4];
-	ret[1] = -h[2] * h[5];
-	ret[2] = h[3];
-	ret[4] = h[7] * h[4] + h[0] * h[5];
-	ret[5] = -h[7] * h[5] + h[0] * h[4];
-	ret[6] = -h[1] * h[2];
-	ret[8] = -h[6] * h[4] + h[1] * h[5];
-	ret[9] = h[6] * h[5] + h[1] * h[4];
-	ret[10] = h[0] * h[2];
-	ret[3] = ret[7] = ret[11] = ret[12] = ret[13] = ret[14]
-		= 0;
-	ret[15] = 1;
-	return (ret);
-}
-
-t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z)
-{
-	t_quaterion	ret;
-	float		h[8];
-
-	h[7] = sin(angle_x * 0.5F);
-	h[6] = cos(angle_x * 0.5F);
-	h[5] = sin(angle_y * 0.5F);
-	h[4] = cos(angle_y * 0.5F);
-	h[3] = sin(angle_z * 0.5F);
-	h[2] = cos(angle_z * 0.5F);
-	h[1] = h[6] * h[4];
-	h[0] = h[7] * h[5];
-	ret = (float *)ft_memalloc(sizeof(float) * 4);
-	ret[0] = h[3] * h[1] - h[2] * h[0];
-	ret[1] = h[2] * h[7] * h[4] + h[3] * h[6] * h[5];
-	ret[2] = h[2] * h[6] * h[5] - h[3] * h[7] * h[4];
-	ret[3] = h[2] * h[1] + h[3] * h[0];
-	return (ret);
-}
-
-t_matrix_4	quaternion_to_matrix(t_quaterion self)
-{
-	t_matrix_4	ret;
-	float       h[9];
-
-	h[8] = self[0] * self[0];
-    h[7] = self[0] * self[1];
-    h[6] = self[0] * self[2];
-    h[5] = self[0] * self[3];
-    h[4] = self[1] * self[1];
-    h[3] = self[1] * self[2];
-    h[2] = self[1] * self[3];
-    h[1] = self[2] * self[2];
-    h[0] = self[2] * self[3];
-	ret = (float *)ft_memalloc(sizeof(float) * 16);
-    ret[0] = 1 - 2 * ( h[4] + h[1] );
-    ret[4] =     2 * ( h[7] - h[0] );
-    ret[8] =     2 * ( h[6] + h[2] );
-    ret[1] =     2 * ( h[7] + h[0] );
-    ret[5] = 1 - 2 * ( h[8] + h[1] );
-    ret[9] =     2 * ( h[3] - h[5] );
-    ret[2] =     2 * ( h[6] - h[2] );
-    ret[6] =     2 * ( h[3] + h[5] );
-    ret[10] = 1 - 2 * ( h[8] + h[4] );
-    ret[15] = 1;
-    return (ret);
-}
-
-t_matrix_4	matrix_new_projection(float fov, float ratio, float near, float far)
-{
-	t_matrix_4  ret;
-	float		s;
-
-    s = 1 / tan(fov / 2 * M_PI / 180);
-	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	ret[0] = s / ratio;
-	ret[5] = s;
-	ret[10] = -1 * (far + near) / (far - near);
-	ret[11] = -1 * 2 * far * near / (far - near);
-	ret[14] = -1;
-	ret[15] = 1;
-	return (ret);
-}
-
-t_vector_4	matrix_on_vector(t_matrix_4 _m, t_vector_4 _v)
-{
-	t_vector_4	ret;
-
-	ret = (float *)ft_memalloc(sizeof(float) * 4);
-	ret[0] = _m[0] * _v[0] + _m[1] * _v[1] + _m[2] * _v[2] + _m[3] * _v[3];
-	ret[1] = _m[4] * _v[0] + _m[5] * _v[1] + _m[6] * _v[2] + _m[7] * _v[3];
-	ret[2] = _m[8] * _v[0] + _m[9] * _v[1] + _m[10] * _v[2] + _m[11] * _v[3];
-	ret[3] = _m[12] * _v[0]
-		+ _m[13] * _v[1]
-		+ _m[14] * _v[2]
-		+ _m[15] * _v[3];
-	return (ret);
-}
 
 t_vector_4	vector_new(float x, float y, float z, float w)
 {
@@ -203,10 +54,11 @@ int     main(int argc, char** argv) {
 		return (1);
 	}
 
-	int bpp = 0;
-	int sl = 0;
-	int e = 0;
-	int *data = (int *)mlx_get_data_addr(img, &bpp, &sl, &e);
+	int bits_per_pixel = 0;
+	int size_line = 0;
+	int endianess = 0;
+	int *data = (int *)mlx_get_data_addr(img, &bits_per_pixel, &size_line, &endianess);
+	size_line /= 4;
 
 	t_vector_4 points[] = {
 		vector_new(0.0f, 0.0f, 0.0f, 1.0f),
@@ -226,6 +78,10 @@ int     main(int argc, char** argv) {
 	// t_matrix_4	rot_mat = matrix_new_rotation(0, 0, -45);
 	t_matrix_4	projection = matrix_new_projection(90, 4/3, 0.5, 100);
 
+	t_matrix_4	a = matrix_on_matrix(projection, rot_mat);
+	t_matrix_4	b = matrix_on_matrix(a, trs);
+
+
 	t_vector_4	zaloopa[100];
 	for (size_t i = 0; i < 8; i++)
 	{
@@ -240,15 +96,16 @@ int     main(int argc, char** argv) {
 		zaloopa[i] = tmp[2];
 
 		t_vector_4	point = tmp[3];
+#ifdef LOG_DEBUG
 		t_vertex_4_print(points[i]);
 		t_vertex_4_print(tmp[0]);
 		t_vertex_4_print(tmp[1]);
 		t_vertex_4_print(tmp[2]);
 		t_vertex_4_print(tmp[3]);
+#endif
 		ft_memdel((void**)&tmp[0]);
 		ft_memdel((void**)&tmp[1]);
 		ft_memdel((void**)&tmp[2]);
-		printf("\n");
 		if (point[0] < 0 || point[0] > WIDTH) {
 			ft_memdel((void**)&tmp[3]);
 			ft_memdel((void**)&tmp);
@@ -259,7 +116,12 @@ int     main(int argc, char** argv) {
 			ft_memdel((void**)&tmp);
 			continue;
 		}
-		data[WIDTH * (size_t)(point[1]) + (size_t)(point[0])] = 0x00FFFFFF;
+		size_t x = point[0];
+		size_t y = point[1];
+#ifdef LOG_INFO
+		printf("Result { x: %zu, y: %zu }\n", x, y);
+#endif
+		data[size_line * y + x] = 0x00FFFFFF;
 		ft_memdel((void**)&tmp[3]);
 		ft_memdel((void**)&tmp);
 	}

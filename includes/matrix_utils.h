@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   matrix_utils.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 19:49:29 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 17:08:29 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/15 01:09:34 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/03/15 17:18:21 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef MATRIX_UTILS_H
+# define MATRIX_UTILS_H
 
-# define LOG_INFO
-
-# include <stdio.h>
-# include <math.h>
-# include "mlx.h"
 # include "libft.h"
 # include "defines.h"
-# include "matrix_factory.h"
-# include "matrix_utils.h"
-# include "quaterion.h"
+
+t_vector_4	matrix_on_vector(t_matrix_4 _m, t_vector_4 _v);
+t_matrix_4	matrix_on_matrix(t_matrix_4 a, t_matrix_4 b);
 
 #endif
