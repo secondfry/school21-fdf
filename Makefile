@@ -6,7 +6,7 @@
 #    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/15 01:10:26 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/15 21:31:00 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIB_DIR = ./libft
 
 SRC_FILES =	main.c \
 			matrix_factory.c matrix_utils.c \
-			quaterion.c
+			quaterion.c vertex.c \
+			hooks_loop_1.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))

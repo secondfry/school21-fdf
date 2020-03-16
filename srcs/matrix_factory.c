@@ -6,7 +6,7 @@
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 01:04:37 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 01:07:39 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/03/16 04:06:33 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_matrix_4	matrix_new_identity()
 	return (ret);
 }
 
-t_matrix_4	martix_new_translation(float x, float y, float z)
+t_matrix_4	matrix_new_translation(float x, float y, float z)
 {
 	t_matrix_4	ret;
 
@@ -77,18 +77,72 @@ t_matrix_4	matrix_new_rotation(float angle_x, float angle_y, float angle_z)
 	return (ret);
 }
 
-t_matrix_4	matrix_new_projection(float fov, float ratio, float near, float far)
+#include <stdio.h>
+
+t_matrix_4	matrix_new_projection(float fov_x, float fov_y, float near, float far)
 {
 	t_matrix_4	ret;
-	float		s;
+	float		sx;
+	float		sy;
 
-	s = 1 / tan(fov / 2 * M_PI / 180);
+	printf("%f, %f, %f, %f\n", fov_x, fov_y, near, far);
+	sx = 1 / tan(fov_x / 2 * M_PI / 180);
+	sy = 1 / tan(fov_y / 2 * M_PI / 180);
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	ret[0] = s / ratio;
-	ret[5] = s;
-	ret[10] = -1 * (far + near) / (far - near);
-	ret[11] = -1 * 2 * far * near / (far - near);
+	ret[0] = sx;
+	ret[5] = sy;
+	ret[10] = -1 * far / (far - near);
+	ret[11] = -1 * far * near / (far - near);
 	ret[14] = -1;
-	ret[15] = 1;
+	ret[15] = 0;
+	return (ret);
+}
+
+t_matrix_4	matrix_new_projection_2(float width, float height, float near, float far)
+{
+	t_matrix_4	ret;
+
+	ret = (float *)ft_memalloc(sizeof(float) * 16);
+	ret[0] = 2 * near / width;
+	// ret[0] = 1;
+	ret[5] = 2 * near / height;
+	// ret[5] = 1;
+	ret[10] = -1 * (far + near) / (far - near);
+	ret[14] = -1;
+	ret[11] = -1 * 2 * far * near / (far - near);
+	ret[15] = 0;
+	return (ret);
+}
+
+// THIS ONE WORKS BLUYAT
+t_matrix_4	matrix_new_projection_3(float fov, float ratio, float near, float far)
+{
+	t_matrix_4	ret;
+	float scale = tan(fov * 0.5 * M_PI / 180) * near;
+	float width = 2 * ratio * scale;
+	float height = 2 * scale;
+
+	ret = (float *)ft_memalloc(sizeof(float) * 16);
+	ret[0] = 2 * near / width;
+	ret[5] = 2 * near / height;
+	ret[10] = -1 * (far + near) / (far - near);
+	ret[14] = -1;
+	ret[11] = -2 * far * near / (far - near);
+	ret[15] = 0;
+	return (ret);
+}
+
+t_matrix_4	matrix_new_projection_4(float fov, float ratio, float near, float far)
+{
+	t_matrix_4	ret;
+	float scale = 1 / tan(fov * 0.5 * M_PI / 180);
+
+	ret = (float *)ft_memalloc(sizeof(float) * 16);
+	ret[0] = scale;
+	ret[5] = scale;
+	ret[10] = -1 * far / (far - near);
+	ret[11] = -1;
+	ret[14] = -1 * far * near / (far - near);
+	ret[15] = 0;
 	return (ret);
 }

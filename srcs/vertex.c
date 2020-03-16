@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   vertex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 19:49:29 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 21:29:31 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/15 21:30:08 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/03/15 21:31:44 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "vertex.h"
 
-# include <stdlib.h>
-// # include <math.h>
-# include "mlx.h"
-# include "libft.h"
-# include "defines.h"
-# include "matrix_factory.h"
-# include "matrix_utils.h"
-# include "quaterion.h"
-# include "hooks_loop.h"
+#include <stdio.h>
 
-#endif
+void		t_vertex_4_print(t_vector_4 self)
+{
+	printf("Point { x: %5.3f, y: %5.3f, z: %5.3f, w: %5.3f }\n", self[0], self[1], self[2], self[3]);
+}
