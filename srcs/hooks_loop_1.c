@@ -132,72 +132,30 @@ void	loop_render(t_fdf *fdf)
 	t_vector_4	result[fdf->point_count];
 	for (size_t i = 0; i < fdf->point_count; i++)
 	{
-		// t_vector_4 tmp0 = matrix_on_vector(fdf->matrix_translation, fdf->points[i]);
-		// t_vector_4 tmp1 = matrix_on_vector(fdf->matrix_rotation, tmp0);
-		// t_vector_4 tmp2 = matrix_on_vector(fdf->matrix_projection, tmp1);
 		result[i] = matrix_on_vector(fdf->matrix_view, fdf->points[i]);
-// #ifdef LOG_DEBUG
-		// t_vertex_4_print(tmp2);
-		// t_vertex_4_print(result[i]);
-		// ft_putchar('\n');
-// #endif
-		if (result[i][3] != 1)
-		{
-			result[i][0] /= result[i][3];
-			result[i][1] /= result[i][3];
-			result[i][2] /= result[i][3];
-//			t_vertex_4_print(result[i]);
-		}
-		// if (result[i][0] < -1 || result[i][0] > 1 || result[i][1] < -1 || result[i][1] > 1)
-		// {
-		// 	result[i][0] = -1;
-		// 	result[i][1] = 1;
-		// }
-		result[i][0] = (result[i][0] + 1) * 0.5 * WIDTH;
-		result[i][1] = (1 - (result[i][1] + 1) * 0.5) * HEIGHT;
-		// t_vertex_4_print(result[i]);
-		// ft_putchar('\n');
-		// result[i][0] = result[i][0] + WIDTH / 2;
-		// result[i][1] = result[i][1] * (-1) + HEIGHT / 2;
+		result[i][0] /= result[i][3];
+		result[i][1] /= result[i][3];
+		result[i][2] /= result[i][3];
+		result[i][0] = (result[i][0] + 1) * 0.5f * WIDTH;
+		result[i][1] = (1 - (result[i][1] + 1) * 0.5f) * HEIGHT;
 	}
-
-	ft_putendl("zaebis\n");
 
 	for (size_t i = 0; i < fdf->point_count; i++)
 	{
-		if (result[i][0] < 1 || result[i][0] > WIDTH) {
+		if (result[i][3] < 0)
+		{
 			ft_memdel((void**)&result[i]);
 			continue;
 		}
-		if (result[i][1] < 1 || result[i][1] >= HEIGHT) {
+		if (result[i][0] < 0 || result[i][0] >= WIDTH
+			|| result[i][1] < 0 || result[i][1] >= HEIGHT)
+		{
 			ft_memdel((void**)&result[i]);
 			continue;
 		}
-		// if (result[i][2] < 0 || result[i][2] > 1) {
-		// 	ft_memdel((void**)&result[i]);
-		// 	continue;
-		// }
-		// for (t_byte j = i + 1; j < fdf->point_count; j++)
-		// {
-		// 	// if (
-		// 	// 	result[j][0] < 1 || result[j][0] > WIDTH
-		// 	// 	|| result[j][1] < 1 || result[j][1] >= HEIGHT
-		// 	// ) {
-		// 	// 	continue;
-		// 	// }
-		// 	if (result[i][0] > result[j][0])
-		// 	{
-		// 		bresenham2(fdf, result[j], result[i]);
-		// 	}
-		// 	else
-		// 	{
-		// 		bresenham2(fdf, result[i], result[j]);
-		// 	}
-		// }
 
-#ifdef LOG_INFO
-		printf("Result { x: %zu, y: %zu }\n", (unsigned short)(result[i][0]), (unsigned short)(result[i][1]));
-#endif
+//		bresenham2(fdf, result[i], result[i + 1]);
+
 		unsigned char blue = 1 * fdf->i;
 		fdf->img_data[fdf->size_line_int * (unsigned short)(result[i][1]) + (unsigned short)(result[i][0])] = 0x00FFFF00 + blue;
 		ft_memdel((void**)&result[i]);

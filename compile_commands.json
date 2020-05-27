@@ -1555,5 +1555,45 @@
    "srcs/hooks_loop_1.c"
   ],
   "file": "srcs/hooks_loop_1.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-O1",
+   "-funroll-loops",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/teapot.o",
+   "srcs/teapot.c"
+  ],
+  "file": "srcs/teapot.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-O1",
+   "-funroll-loops",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/vector.o",
+   "srcs/vector.c"
+  ],
+  "file": "srcs/vector.c"
  }
 ]

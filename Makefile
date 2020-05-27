@@ -22,8 +22,9 @@ LIB_DIR = ./libft
 
 SRC_FILES =	main.c \
 			matrix_factory.c matrix_utils.c \
-			quaterion.c vertex.c \
-			hooks_loop_1.c
+			quaterion.c vertex.c vector.c \
+			hooks_loop_1.c \
+			teapot.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))

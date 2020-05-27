@@ -20,6 +20,8 @@
 # include "matrix_factory.h"
 # include "matrix_utils.h"
 # include "quaterion.h"
+# include "vector.h"
 # include "hooks_loop.h"
+# include "teapot.h"
 
 #endif
