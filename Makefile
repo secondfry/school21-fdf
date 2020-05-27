@@ -142,4 +142,7 @@ fclean: clean
 	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
 	@echo -n $(DEFAULT)
 
+debug: clean
+	CFLAGS="$(CFLAGS_DEBUG)" $(MAKE) all
+
 re: fclean all

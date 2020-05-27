@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="88614cef-e223-4204-acac-ff2982fc14af" name="using_makefile_debug" projectName="school21-fdf">
+      <configuration id="60c0decc-931e-4701-b4a1-a8bd23245b49" name="using_makefile_debug" toolchainName="Default">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make_debug" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_make_fclean" />
+        </clean>
+      </configuration>
+    </target>
+  </component>
+</project>
