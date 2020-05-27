@@ -12,7 +12,7 @@
 
 #include "matrix_utils.h"
 
-t_vector_4	matrix_on_vector(t_matrix_4 _m, t_vector_4 _v)
+t_vector_4	matrix_on_vector(t_const_matrix_4 _m, t_const_vector_4 _v)
 {
 	t_vector_4	ret;
 
@@ -24,7 +24,7 @@ t_vector_4	matrix_on_vector(t_matrix_4 _m, t_vector_4 _v)
 	return (ret);
 }
 
-t_matrix_4	matrix_on_matrix(t_matrix_4 a, t_matrix_4 b)
+t_matrix_4	matrix_on_matrix(t_const_matrix_4 a, t_const_matrix_4 b)
 {
 	t_matrix_4	r;
 

@@ -17,12 +17,12 @@ t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z)
 	t_quaterion	ret;
 	float		h[8];
 
-	h[7] = sin(angle_x * 0.5F);
-	h[6] = cos(angle_x * 0.5F);
-	h[5] = sin(angle_y * 0.5F);
-	h[4] = cos(angle_y * 0.5F);
-	h[3] = sin(angle_z * 0.5F);
-	h[2] = cos(angle_z * 0.5F);
+	h[7] = sinf(angle_x * 0.5F);
+	h[6] = cosf(angle_x * 0.5F);
+	h[5] = sinf(angle_y * 0.5F);
+	h[4] = cosf(angle_y * 0.5F);
+	h[3] = sinf(angle_z * 0.5F);
+	h[2] = cosf(angle_z * 0.5F);
 	h[1] = h[6] * h[4];
 	h[0] = h[7] * h[5];
 	ret = (float *)ft_memalloc(sizeof(float) * 4);
@@ -33,7 +33,7 @@ t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z)
 	return (ret);
 }
 
-t_matrix_4	quaternion_to_matrix(t_quaterion self)
+t_matrix_4	quaternion_to_matrix(t_const_quaterion self)
 {
 	t_matrix_4	ret;
 	float		h[9];

@@ -146,7 +146,7 @@ void	loop_render(t_fdf *fdf)
 			result[i][0] /= result[i][3];
 			result[i][1] /= result[i][3];
 			result[i][2] /= result[i][3];
-			t_vertex_4_print(result[i]);
+//			t_vertex_4_print(result[i]);
 		}
 		// if (result[i][0] < -1 || result[i][0] > 1 || result[i][1] < -1 || result[i][1] > 1)
 		// {

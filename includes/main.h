@@ -14,7 +14,6 @@
 # define MAIN_H
 
 # include <stdlib.h>
-// # include <math.h>
 # include "mlx.h"
 # include "libft.h"
 # include "defines.h"

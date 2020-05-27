@@ -13,19 +13,23 @@
 #ifndef DEFINES_H
 # define DEFINES_H
 
-# define WIDTH 1280
-# define HEIGHT 720
-# define TITLE "FDF"
-
 # include <stdlib.h>
 # include "libft.h"
 
-typedef float	*t_matrix_4;
-typedef float	*t_vector_4;
-typedef float	*t_quaterion;
-typedef int		(*t_mlx_hook)();
+# define WIDTH 1280
+# define HEIGHT 720
+# define TITLE "FDF"
+# define M_PI_2F 1.57079632679489661923132169163975144f
 
-typedef struct	s_fdf
+typedef float		*t_matrix_4;
+typedef float		*t_vector_4;
+typedef float		*t_quaterion;
+typedef const float	*t_const_matrix_4;
+typedef const float	*t_const_vector_4;
+typedef const float	*t_const_quaterion;
+typedef int			(*t_mlx_hook)();
+
+typedef struct		s_fdf
 {
 	void		*mlx;
 	void		*win;
@@ -44,11 +48,11 @@ typedef struct	s_fdf
 	float		**points;
 	size_t		point_count;
 	short		i;
-}				t_fdf;
+}					t_fdf;
 
-# define FLAG_INVALIDATE_TRANSLATION	1 << 0
-# define FLAG_INVALIDATE_ROTATION		1 << 1
-# define FLAG_INVALIDATE_PROJECTION		1 << 2
-# define FLAG_INVALIDATE_VIEW			1 << 3
+# define FLAG_INVALIDATE_TRANSLATION	1u << 0u
+# define FLAG_INVALIDATE_ROTATION		1u << 1u
+# define FLAG_INVALIDATE_PROJECTION		1u << 2u
+# define FLAG_INVALIDATE_VIEW			1u << 3u
 
 #endif

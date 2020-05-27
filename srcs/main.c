@@ -43,7 +43,7 @@ int			main(int argc, char** argv)
 	if (!fdf.win)
 	{
 		ft_putstr("[main] mlx_new_window errored.");
-		ft_memdel((void**)&(fdf.mlx));
+		ft_memdel(&(fdf.mlx));
 		return (1);
 	}
 
@@ -52,7 +52,7 @@ int			main(int argc, char** argv)
 	{
 		ft_putstr("[main] mlx_new_image errored.");
 		mlx_destroy_window(fdf.mlx, fdf.win);
-		ft_memdel((void**)&(fdf.mlx));
+		ft_memdel(&(fdf.mlx));
 		return (1);
 	}
 
@@ -62,8 +62,8 @@ int			main(int argc, char** argv)
 	int size_line = 0;
 	int endianess = 0;
 	fdf.img_data = (int *)mlx_get_data_addr(fdf.img, &bits_per_pixel, &size_line, &endianess);
-	fdf.size_line_char = size_line;
-	fdf.size_line_int = size_line / 4;
+	fdf.size_line_char = (size_t) size_line;
+	fdf.size_line_int = (size_t) (size_line / 4);
 	fdf.point_count = 2630;
 	fdf.points = (t_vector_4 []){
 		vector_new(  7.00000f, 12.00000f,  0.00000f, 1.0f),
@@ -2724,7 +2724,6 @@ int			main(int argc, char** argv)
 	fdf.matrix_view = matrix_new_identity();
 	fdf.options |= FLAG_INVALIDATE_TRANSLATION | FLAG_INVALIDATE_ROTATION
 		| FLAG_INVALIDATE_PROJECTION;
-	// fdf.matrix_projection_properties = vector_new(20.0f, 10.0f, 0.1f, 50.0f);
 	fdf.matrix_projection_properties = vector_new(90.0f, WIDTH / (float) HEIGHT, 0.1f, 100.0f);
 
 	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);

@@ -60,7 +60,7 @@ CFLAGS_ERRORS = -Wall -Wextra
 CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)
-CFLAGS_DEBUG = -g -fno-omit-frame-pointer
+CFLAGS_DEBUG = -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
 CFLAGS_FINAL =	$(CFLAGS_INTERNAL) \
 				$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
 				$(CFLAGS_DEPENDENCIES) $(CFLAGS_INCLUDES) \

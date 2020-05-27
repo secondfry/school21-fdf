@@ -13,8 +13,6 @@
 #ifndef HOOKS_H
 # define HOOKS_H
 
-# define LOG_DEBUG
-
 # include <stdlib.h>
 # include "mlx.h"
 # include "libft.h"
@@ -23,6 +21,8 @@
 # include "matrix_utils.h"
 # include "quaterion.h"
 # include "vertex.h"
+
+# define LOG_DEBUG
 
 int		loop_hook(t_fdf *fdf);
 void	loop_calculate_matrix_translation(t_fdf *fdf);

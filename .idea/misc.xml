@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CidrRootsConfiguration">
+    <sourceRoots>
+      <file path="$PROJECT_DIR$/includes" />
+      <file path="$PROJECT_DIR$/srcs" />
+    </sourceRoots>
+    <libraryRoots>
+      <file path="$PROJECT_DIR$/libft" />
+      <file path="$PROJECT_DIR$/minilibx" />
+      <file path="$PROJECT_DIR$/minilibx_macos" />
+      <file path="$PROJECT_DIR$/minilibx_mms_20191025_beta" />
+    </libraryRoots>
+  </component>
   <component name="CompDBSettings">
     <option name="linkedExternalProjectsSettings">
       <CompDBProjectSettings>

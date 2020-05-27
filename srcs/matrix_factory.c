@@ -54,12 +54,12 @@ t_matrix_4	matrix_new_rotation(float angle_x, float angle_y, float angle_z)
 	float		h[8];
 
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
-	h[0] = cos(angle_x);
-	h[1] = sin(angle_x);
-	h[2] = cos(angle_y);
-	h[3] = sin(angle_y);
-	h[4] = cos(angle_z);
-	h[5] = sin(angle_z);
+	h[0] = cosf(angle_x);
+	h[1] = sinf(angle_x);
+	h[2] = cosf(angle_y);
+	h[3] = sinf(angle_y);
+	h[4] = cosf(angle_z);
+	h[5] = sinf(angle_z);
 	h[6] = h[0] * h[3];
 	h[7] = h[1] * h[3];
 	ret[0] = h[2] * h[4];
@@ -86,8 +86,9 @@ t_matrix_4	matrix_new_projection(float fov_x, float fov_y, float near, float far
 	float		sy;
 
 	printf("%f, %f, %f, %f\n", fov_x, fov_y, near, far);
-	sx = 1 / tan(fov_x / 2 * M_PI / 180);
-	sy = 1 / tan(fov_y / 2 * M_PI / 180);
+
+	sx = 1 / tanf(fov_x * M_PI_2F / 180);
+	sy = 1 / tanf(fov_y * M_PI_2F / 180);
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
 	ret[0] = sx;
 	ret[5] = sy;
@@ -118,7 +119,7 @@ t_matrix_4	matrix_new_projection_2(float width, float height, float near, float 
 t_matrix_4	matrix_new_projection_3(float fov, float ratio, float near, float far)
 {
 	t_matrix_4	ret;
-	float scale = tan(fov * 0.5 * M_PI / 180) * near;
+	float scale = tanf(fov * M_PI_2F / 180) * near;
 	float width = 2 * ratio * scale;
 	float height = 2 * scale;
 
@@ -135,7 +136,7 @@ t_matrix_4	matrix_new_projection_3(float fov, float ratio, float near, float far
 t_matrix_4	matrix_new_projection_4(float fov, float ratio, float near, float far)
 {
 	t_matrix_4	ret;
-	float scale = 1 / tan(fov * 0.5 * M_PI / 180);
+	float scale = 1 / tanf(fov * M_PI_2F / 180);
 
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
 	ret[0] = scale;

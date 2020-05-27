@@ -18,6 +18,6 @@
 # include "defines.h"
 
 t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z);
-t_matrix_4	quaternion_to_matrix(t_quaterion self);
+t_matrix_4	quaternion_to_matrix(t_const_quaterion self);
 
 #endif
