@@ -107,6 +107,7 @@ $(LIB_DIR)/$(LIB):
 
 $(MLX_DIR)/$(MLX):
 	$(MAKE) -C $(MLX_DIR)
+	cp $(MLX_DIR)/$(MLX) $(MLX)
 
 clean:
 	@echo $(CYAN) "Cleaning libft" $(DEFAULT)
@@ -133,6 +134,7 @@ fclean: clean
 	@echo $(CYAN) "Purging minilibx" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(MLX_DIR) fclean
+	rm -rfv $(MLX)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Purging fdf" $(DEFAULT)
