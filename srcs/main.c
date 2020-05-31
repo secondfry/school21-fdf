@@ -52,10 +52,19 @@ void		init_pipeline(t_fdf *fdf)
 		90.0f, WIDTH / (float) HEIGHT, 0.1f, 100.0f);
 }
 
+void		input(char *filename)
+{
+
+}
+
 int			main(int argc, char** argv)
 {
 	t_fdf	fdf;
 
+	if (argc < 2) {
+		return (EINVAL);
+	}
+	input(argv[argc]);
 	init_mlx(&fdf);
 	init_mlx_image(&fdf);
 	init_pipeline(&fdf);

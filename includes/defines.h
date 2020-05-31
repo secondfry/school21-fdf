@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/16 03:51:32 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/05/31 13:49:37 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define HEIGHT 720
 # define TITLE "FDF"
 # define M_PI_2F 1.57079632679489661923132169163975144f
+
+# define EINVAL 22
 
 typedef float		*t_matrix_4;
 typedef float		*t_vector_4;

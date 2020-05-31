@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATRIX_H
-# define MATRIX_H
+#ifndef MATRIX_FACTORY_H
+# define MATRIX_FACTORY_H
 
 # include <math.h>
 # include "libft.h"
