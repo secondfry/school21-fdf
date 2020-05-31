@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_loop.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:50:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 22:02:39 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/05/31 13:51:54 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOOKS_H
-# define HOOKS_H
+#ifndef HOOKS_LOOP_H
+# define HOOKS_LOOP_H
 
 # include <stdlib.h>
 # include "mlx.h"
