@@ -27,5 +27,6 @@ t_matrix_4	matrix_new_projection(
 	float near,
 	float far
 );
+t_matrix_4	matrix_new_projection_ortho(float fov, float ratio, float near, float far);
 
 #endif

@@ -16,8 +16,8 @@ t_byte	is_valid(t_const_vector_4 dot)
 {
 	if (!dot)
 		return (0);
-	if (dot[3] > 0)
-		return (0);
+//	if (dot[3] > 0)
+//		return (0);
 	if (dot[0] < 0 || dot[0] >= WIDTH || dot[1] < 0 || dot[1] >= HEIGHT)
 		return (0);
 	return (1);

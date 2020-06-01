@@ -67,6 +67,7 @@ void	scan_file(t_fdf *fdf, char *filename)
 		fdf->height++;
 		ft_memdel((void**)&line);
 	}
+	ft_memdel((void**)&line);
 	fdf->width == 0 ? graceful(EINVAL, "Provide valid map, please.") : 0;
 	res = close(fd);
 	res == -1 ? graceful(EINVAL, "Close failed!") : 0;
@@ -91,13 +92,15 @@ void	fill_data(t_fdf *fdf, char *filename)
 		{
 			i.z = ft_atoi(dots[i.x]);
 			fdf->points[i.d] = vector_new(i.x, i.y, i.z, 1.f);
-			ft_memdel((void**)(dots + i.x));
+			ft_memdel((void**)dots + i.x);
 			i.x++;
 			i.d++;
 		}
 		i.y++;
+		ft_memdel((void**)&dots);
 		ft_memdel((void**)&line);
 	}
+	ft_memdel((void**)&line);
 	close(fd);
 }
 

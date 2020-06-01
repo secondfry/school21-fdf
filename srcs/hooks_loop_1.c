@@ -30,9 +30,9 @@ void	loop_calculate_matrix_translation(t_fdf *fdf)
 #ifdef LOG_DEBUG
 	ft_putendl("FLAG_INVALIDATE_TRANSLATION");
 #endif
-	ft_memdel((void**)&fdf->matrix_translation);
-	fdf->matrix_translation = matrix_new_translation(
-		-1.f * fdf->width / 2.f, -1.f * fdf->height / 2.f, -100.f);
+//	ft_memdel((void**)&fdf->matrix_translation);
+//	fdf->matrix_translation = matrix_new_translation(
+//		-1.f * fdf->width / 2.f, -1.f * fdf->height / 2.f, -100.f);
 	fdf->options -= FLAG_INVALIDATE_TRANSLATION;
 	fdf->options |= FLAG_INVALIDATE_VIEW;
 }
@@ -47,9 +47,12 @@ void	loop_calculate_matrix_rotation(t_fdf *fdf)
 	ft_putendl("FLAG_INVALIDATE_ROTATION");
 #endif
 	ft_memdel((void**)&fdf->matrix_rotation);
-	quaternion = quaternion_new(M_PI_F + fdf->i++ * M_PI_2F / 180.f, 0, 0);
+//	quaternion = quaternion_new(M_PI_F + fdf->i++ * M_PI_2F / 180.f, 0, 0);
+	quaternion = quaternion_new(M_PI_F + 35.264 * M_PI_2F / 90.f, M_PI_4F, 0); // isometric
 	fdf->matrix_rotation = quaternion_to_matrix(quaternion);
 	ft_memdel((void**)&quaternion);
+//	fdf->matrix_rotation = matrix_new_rotation(M_PI_F + 35.264 * M_PI_2F / 90.f, M_PI_4F, 0);
+//	fdf->matrix_rotation = matrix_new_rotation(M_PI_F, 0, M_PI_F);
 	fdf->options -= FLAG_INVALIDATE_ROTATION;
 	fdf->options |= FLAG_INVALIDATE_VIEW;
 }
@@ -61,12 +64,12 @@ void	loop_calculate_matrix_projection(t_fdf *fdf)
 #ifdef LOG_DEBUG
 	ft_putendl("FLAG_INVALIDATE_PROJECTION");
 #endif
-	ft_memdel((void**)&fdf->matrix_projection);
-	fdf->matrix_projection = matrix_new_projection(
-		fdf->matrix_projection_properties[0],
-		fdf->matrix_projection_properties[1],
-		fdf->matrix_projection_properties[2],
-		fdf->matrix_projection_properties[3]);
+//	ft_memdel((void**)&fdf->matrix_projection);
+//	fdf->matrix_projection = matrix_new_projection(
+//		fdf->matrix_projection_properties[0],
+//		fdf->matrix_projection_properties[1],
+//		fdf->matrix_projection_properties[2],
+//		fdf->matrix_projection_properties[3]);
 	fdf->options -= FLAG_INVALIDATE_PROJECTION;
 	fdf->options |= FLAG_INVALIDATE_VIEW;
 }
