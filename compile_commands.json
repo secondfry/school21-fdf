@@ -2,11 +2,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -20,11 +20,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -38,11 +38,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -56,11 +56,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -74,11 +74,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -92,11 +92,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -110,11 +110,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -128,11 +128,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -146,11 +146,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -164,11 +164,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -182,11 +182,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -200,11 +200,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -218,11 +218,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -236,11 +236,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -254,11 +254,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -272,11 +272,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -290,11 +290,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -308,11 +308,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -326,11 +326,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -344,11 +344,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -362,11 +362,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -380,11 +380,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -398,11 +398,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -416,11 +416,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -434,11 +434,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -452,11 +452,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -470,11 +470,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -488,11 +488,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -506,11 +506,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -524,11 +524,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -542,11 +542,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -560,11 +560,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -578,11 +578,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -596,11 +596,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -614,11 +614,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -632,11 +632,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -650,11 +650,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -668,11 +668,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -686,11 +686,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -704,11 +704,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -722,11 +722,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -740,11 +740,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -758,11 +758,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -776,11 +776,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -794,11 +794,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -812,11 +812,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -830,11 +830,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -848,11 +848,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -866,11 +866,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -884,11 +884,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -902,11 +902,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -920,11 +920,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -938,11 +938,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -956,11 +956,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -974,11 +974,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -992,11 +992,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1010,11 +1010,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1028,11 +1028,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1046,11 +1046,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1064,11 +1064,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1082,11 +1082,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1100,11 +1100,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1118,11 +1118,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1136,11 +1136,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1154,11 +1154,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1172,11 +1172,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1190,11 +1190,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1208,11 +1208,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1226,11 +1226,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1244,11 +1244,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1262,11 +1262,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1280,11 +1280,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1298,11 +1298,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1316,11 +1316,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1334,11 +1334,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1352,11 +1352,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1370,11 +1370,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1388,11 +1388,11 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/libft",
   "arguments": [
-   "gcc",
+   "clang",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O1",
+   "-O3",
    "-funroll-loops",
    "-MMD",
    "-MP",
@@ -1406,7 +1406,7 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/minilibx_mms_20191025_beta",
   "arguments": [
-   "cc",
+   "clang",
    "-c",
    "-o",
    "mlx_xpm.o",
@@ -1417,7 +1417,7 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/minilibx_mms_20191025_beta",
   "arguments": [
-   "cc",
+   "clang",
    "-c",
    "-o",
    "mlx_png.o",
@@ -1428,7 +1428,7 @@
  {
   "directory": "/Users/secondfry/school21/school21-fdf/minilibx_mms_20191025_beta",
   "arguments": [
-   "cc",
+   "clang",
    "-c",
    "-o",
    "mlx_string_put.o",
@@ -1442,8 +1442,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1462,8 +1462,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1482,8 +1482,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1502,8 +1502,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1522,8 +1522,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1542,8 +1542,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1562,8 +1562,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",
@@ -1582,8 +1582,8 @@
    "clang",
    "-Wall",
    "-Wextra",
-   "-O1",
    "-funroll-loops",
+   "-O1",
    "-MMD",
    "-MP",
    "-I./includes",

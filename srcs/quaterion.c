@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quaterion.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 01:05:46 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/15 01:06:16 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/05/31 13:57:51 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

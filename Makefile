@@ -58,10 +58,21 @@ else
 endif
 
 CFLAGS_ERRORS = -Wall -Wextra
-CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
+CFLAGS_OPTIMIZATIONS = -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)
-CFLAGS_DEBUG = -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
+CFLAGS_DEBUG = -O0 -pg -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
+
+ifeq ($(CC), clang)
+CFLAGS_OPTIMIZATIONS += -O1
+endif
+ifeq ($(CC), gcc)
+CFLAGS_OPTIMIZATIONS += -O3
+endif
+ifeq ($(CC), gcc-9)
+CFLAGS_OPTIMIZATIONS += -O3
+endif
+
 CFLAGS_FINAL =	$(CFLAGS_INTERNAL) \
 				$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
 				$(CFLAGS_DEPENDENCIES) $(CFLAGS_INCLUDES) \
@@ -80,12 +91,13 @@ CYAN = "\033[0;36m"
 all:
 	@echo $(CYAN) "Making libft" $(DEFAULT)
 	@echo -n $(BLUE)
-	$(MAKE) $(LIB_DIR)/$(LIB)
+	CC="$(CC)" $(MAKE) -C $(LIB_DIR)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Making minilibx" $(DEFAULT)
 	@echo -n $(BLUE)
-	$(MAKE) $(MLX_DIR)/$(MLX)
+	CC="$(CC)" $(MAKE) -C $(MLX_DIR)
+	cp $(MLX_DIR)/$(MLX) $(MLX)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Making fdf" $(DEFAULT)
@@ -100,15 +112,8 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJS_DIR)
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIB_DIR)/$(LIB) $(MLX_DIR)/$(MLX)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
-
-$(LIB_DIR)/$(LIB):
-	$(MAKE) -C $(LIB_DIR)
-
-$(MLX_DIR)/$(MLX):
-	$(MAKE) -C $(MLX_DIR)
-	cp $(MLX_DIR)/$(MLX) $(MLX)
 
 clean:
 	@echo $(CYAN) "Cleaning libft" $(DEFAULT)
@@ -143,7 +148,7 @@ fclean: clean
 	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
 	@echo -n $(DEFAULT)
 
-debug: clean
+debug:
 	CFLAGS="$(CFLAGS_DEBUG)" $(MAKE) all
 
 re: fclean all

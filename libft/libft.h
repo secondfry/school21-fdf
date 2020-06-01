@@ -81,6 +81,7 @@
 ** Wonderful typedefs
 */
 typedef unsigned char	t_byte;
+typedef unsigned short	t_ushort;
 typedef unsigned long	t_ulong;
 typedef struct	s_list
 {

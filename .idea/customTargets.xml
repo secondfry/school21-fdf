@@ -11,5 +11,15 @@
         </clean>
       </configuration>
     </target>
+    <target id="7c333d37-6f68-4f7f-baa6-396dcf5fdd27" name="using_makefile" projectName="school21-fdf">
+      <configuration id="f9a15ec5-006f-4224-805f-507e1fcbc62d" name="using_makefile" toolchainName="Default">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_make_all" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_make_fclean" />
+        </clean>
+      </configuration>
+    </target>
   </component>
 </project>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_factory.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 01:04:37 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/16 04:06:33 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/05/31 13:57:50 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

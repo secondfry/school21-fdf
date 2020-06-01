@@ -22,13 +22,15 @@
 # include "quaterion.h"
 # include "vertex.h"
 
-# define LOG_DEBUG
+//# define LOG_DEBUG
 
 int		loop_hook(t_fdf *fdf);
 void	loop_calculate_matrix_translation(t_fdf *fdf);
 void	loop_calculate_matrix_rotation(t_fdf *fdf);
 void	loop_calculate_matrix_projection(t_fdf *fdf);
 void	loop_calculate_matrix_view(t_fdf *fdf);
+void	loop_fill_image(t_fdf *fdf);
+void	loop_fill_image_cleanup(t_fdf *fdf, float** data);
 void	loop_render(t_fdf *fdf);
 
 #endif
