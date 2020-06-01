@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/05/31 13:51:23 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/01 05:08:21 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,9 @@ typedef struct		s_fdf
 	size_t		redraw;
 }					t_fdf;
 
-//# define FLAG_INVALIDATE_TRANSLATION	1u << 0u
-//# define FLAG_INVALIDATE_ROTATION		1u << 1u
-//# define FLAG_INVALIDATE_PROJECTION		1u << 2u
-//# define FLAG_INVALIDATE_VIEW			1u << 3u
-# define FLAG_INVALIDATE_TRANSLATION	1u
-# define FLAG_INVALIDATE_ROTATION		2u
-# define FLAG_INVALIDATE_PROJECTION		4u
-# define FLAG_INVALIDATE_VIEW			8u
+# define FLAG_INVALIDATE_TRANSLATION	1u << 0u
+# define FLAG_INVALIDATE_ROTATION		1u << 1u
+# define FLAG_INVALIDATE_PROJECTION		1u << 2u
+# define FLAG_INVALIDATE_VIEW			1u << 3u
 
 #endif

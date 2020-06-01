@@ -27,23 +27,5 @@ t_matrix_4	matrix_new_projection(
 	float near,
 	float far
 );
-t_matrix_4	matrix_new_projection_2(
-	float width,
-	float height,
-	float near,
-	float far
-);
-t_matrix_4	matrix_new_projection_3(
-	float fov,
-	float ratio,
-	float near,
-	float far
-);
-t_matrix_4	matrix_new_projection_4(
-	float fov,
-	float ratio,
-	float near,
-	float far
-);
 
 #endif

@@ -17,6 +17,7 @@ t_vector_4	matrix_on_vector(t_const_matrix_4 m, t_const_vector_4 v)
 	t_vector_4	ret;
 
 	ret = (float *)ft_memalloc(sizeof(float) * 4);
+	ret == 0 ? exit(ENOMEM) : 0;
 	ret[0] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3] * v[3];
 	ret[1] = m[4] * v[0] + m[5] * v[1] + m[6] * v[2] + m[7] * v[3];
 	ret[2] = m[8] * v[0] + m[9] * v[1] + m[10] * v[2] + m[11] * v[3];
@@ -29,6 +30,7 @@ t_matrix_4	matrix_on_matrix(t_const_matrix_4 a, t_const_matrix_4 b)
 	t_matrix_4	r;
 
 	r = (float *)ft_memalloc(sizeof(float) * 16);
+	r == 0 ? exit(ENOMEM) : 0;
 	r[0] = a[0] * b[0] + a[1] * b[4] + a[2] * b[8] + a[3] * b[12];
 	r[1] = a[0] * b[1] + a[1] * b[5] + a[2] * b[9] + a[3] * b[13];
 	r[2] = a[0] * b[2] + a[1] * b[6] + a[2] * b[10] + a[3] * b[14];

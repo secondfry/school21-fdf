@@ -26,6 +26,7 @@ t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z)
 	h[1] = h[6] * h[4];
 	h[0] = h[7] * h[5];
 	ret = (float *)ft_memalloc(sizeof(float) * 4);
+	ret == 0 ? exit(ENOMEM) : 0;
 	ret[0] = h[3] * h[1] - h[2] * h[0];
 	ret[1] = h[2] * h[7] * h[4] + h[3] * h[6] * h[5];
 	ret[2] = h[2] * h[6] * h[5] - h[3] * h[7] * h[4];
@@ -48,6 +49,7 @@ t_matrix_4	quaternion_to_matrix(t_const_quaterion self)
 	h[1] = self[2] * self[2];
 	h[0] = self[2] * self[3];
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
+	ret == 0 ? exit(ENOMEM) : 0;
 	ret[0] = 1 - 2 * ( h[4] + h[1] );
 	ret[4] =     2 * ( h[7] - h[0] );
 	ret[8] =     2 * ( h[6] + h[2] );

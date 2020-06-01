@@ -1531,26 +1531,6 @@
    "-I./minilibx_mms_20191025_beta",
    "-c",
    "-o",
-   "objs/vertex.o",
-   "srcs/vertex.c"
-  ],
-  "file": "srcs/vertex.c"
- },
- {
-  "directory": "/Users/secondfry/school21/school21-fdf",
-  "arguments": [
-   "clang",
-   "-Wall",
-   "-Wextra",
-   "-funroll-loops",
-   "-O1",
-   "-MMD",
-   "-MP",
-   "-I./includes",
-   "-I./libft",
-   "-I./minilibx_mms_20191025_beta",
-   "-c",
-   "-o",
    "objs/hooks_loop_1.o",
    "srcs/hooks_loop_1.c"
   ],
@@ -1595,5 +1575,45 @@
    "srcs/vector.c"
   ],
   "file": "srcs/vector.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-funroll-loops",
+   "-O1",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/hooks_loop_2.o",
+   "srcs/hooks_loop_2.c"
+  ],
+  "file": "srcs/hooks_loop_2.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-funroll-loops",
+   "-O1",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/bresenham.o",
+   "srcs/bresenham.c"
+  ],
+  "file": "srcs/bresenham.c"
  }
 ]

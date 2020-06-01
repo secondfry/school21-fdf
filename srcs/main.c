@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 01:26:20 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/01 05:11:07 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,10 @@ void		init_pipeline(t_fdf *fdf)
 	fdf->matrix_projection = matrix_new_identity();
 	fdf->matrix_view = matrix_new_identity();
 	fdf->options = FLAG_INVALIDATE_TRANSLATION | FLAG_INVALIDATE_ROTATION
-				  | FLAG_INVALIDATE_PROJECTION;
+		| FLAG_INVALIDATE_PROJECTION;
 	fdf->matrix_projection_properties = vector_new(
-		90.0f, WIDTH / (float) HEIGHT, 0.1f, 100.0f);
+		90.0f, WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 }
-
-#include <fcntl.h>
-#include "get_next_line.h"
 
 void		input(t_fdf *fdf, char *filename)
 {
@@ -90,6 +87,7 @@ void		input(t_fdf *fdf, char *filename)
 	close(fd);
 	// exit(0);
 	fdf->points = (t_vector_4 *)malloc(sizeof(t_vector_4) * fdf->point_count);
+	fdf->points == 0 ? exit(ENOMEM) : 0;
 	fdf->width = width;
 	fdf->height = fdf->point_count / fdf->width;
 	fd = open(filename, O_RDONLY);
@@ -102,6 +100,7 @@ void		input(t_fdf *fdf, char *filename)
 		while (arr[counter_column]) {
 			int height = ft_atoi(arr[counter_column]);
 			fdf->points[counter_dot] = (t_vector_4)malloc(sizeof(float) * 4);
+			fdf->points[counter_dot] == 0 ? exit(ENOMEM) : 0;
 			fdf->points[counter_dot][0] = counter_column;
 			fdf->points[counter_dot][1] = counter_line;
 			fdf->points[counter_dot][2] = (float)height;
