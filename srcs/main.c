@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:00:03 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 05:11:07 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/01 06:03:56 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,84 +52,17 @@ void		init_pipeline(t_fdf *fdf)
 		90.0f, WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 }
 
-void		input(t_fdf *fdf, char *filename)
-{
-	int fd = open(filename, O_RDONLY);
-	char *data = 0;
-	char *saver = 0;
-	char *endptr;
-	size_t width = 0;
-	while (get_next_line(fd, &data) > 0) {
-		saver = data;
-		char **elems = ft_strsplit(data, ' ');
-		size_t i = 0;
-		while (elems[i]) {
-			ft_strtol(elems[i], &endptr, 10);
-			if (elems[i] == endptr)
-			{
-				ft_putstr("loshok na pososhok\n");
-				exit(EINVAL);
-			}
-			fdf->point_count++;
-			i++;
-		}
-
-		if (width != 0 && width != i)
-		{
-			ft_putstr("loshok na pososhok\n");
-			exit(EINVAL);
-		}
-		width = i;
-
-		ft_memdel((void**)&saver);
-	}
-
-	close(fd);
-	// exit(0);
-	fdf->points = (t_vector_4 *)malloc(sizeof(t_vector_4) * fdf->point_count);
-	fdf->points == 0 ? exit(ENOMEM) : 0;
-	fdf->width = width;
-	fdf->height = fdf->point_count / fdf->width;
-	fd = open(filename, O_RDONLY);
-	data = 0;
-	size_t counter_dot = 0;
-	size_t counter_line = 0;
-	while (get_next_line(fd, &data) > 0) {
-		char **arr = ft_strsplit(data, ' ');
-		size_t counter_column = 0;
-		while (arr[counter_column]) {
-			int height = ft_atoi(arr[counter_column]);
-			fdf->points[counter_dot] = (t_vector_4)malloc(sizeof(float) * 4);
-			fdf->points[counter_dot] == 0 ? exit(ENOMEM) : 0;
-			fdf->points[counter_dot][0] = counter_column;
-			fdf->points[counter_dot][1] = counter_line;
-			fdf->points[counter_dot][2] = (float)height;
-			fdf->points[counter_dot][3] = 1.f;
-			ft_memdel((void**)(arr + counter_column));
-			counter_column++;
-			counter_dot++;
-		}
-		counter_line++;
-		ft_memdel((void**)&data);
-	}
-	fdf->height = counter_line;
-	close(fd);
-}
-
-int			main(int argc, char** argv)
+int			main(int argc, char **argv)
 {
 	t_fdf	fdf;
 
-	if (argc < 2) {
+	if (argc < 2)
 		return (EINVAL);
-	}
 	fdf.point_count = 0;
 	input(&fdf, argv[argc - 1]);
-//	return (0);
 	init_mlx(&fdf);
 	init_mlx_image(&fdf);
 	init_pipeline(&fdf);
-//	init_teapot(&fdf);
 	fdf.redraw = 1;
 	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);
 	mlx_loop(fdf.mlx);

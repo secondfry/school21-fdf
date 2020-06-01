@@ -20,7 +20,7 @@ OBJS_DIR = ./objs
 LIB = libft.a
 LIB_DIR = ./libft
 
-SRC_FILES =	main.c \
+SRC_FILES =	main.c input.c graceful.c \
 			matrix_factory.c matrix_utils.c \
 			quaterion.c vector.c \
 			hooks_loop_1.c hooks_loop_2.c bresenham.c \
@@ -148,7 +148,7 @@ fclean: clean
 	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
 	@echo -n $(DEFAULT)
 
-debug:
+debug: clean
 	CFLAGS="$(CFLAGS_DEBUG)" $(MAKE) all
 
 re: fclean all

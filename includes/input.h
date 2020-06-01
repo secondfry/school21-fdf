@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bresenham.h                                        :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/01 05:22:02 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 06:04:40 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/06/01 05:58:38 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/06/01 06:36:57 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRESENHAM_H
-# define BRESENHAM_H
+#ifndef INPUT_H
+# define INPUT_H
 
+# include <fcntl.h>
+# include "get_next_line.h"
 # include "defines.h"
+# include "graceful.h"
+# include "vector.h"
 
-typedef struct	s_bresenham
+typedef struct	s_i
 {
-	t_ushort	x0;
-	t_ushort	y0;
-	t_ushort	x1;
-	t_ushort	y1;
-	short		dx;
-	short		dy;
-	char		sx;
-	char		sy;
-	short		err;
-}				t_bresenham;
+	size_t		d;
+	size_t		x;
+	size_t		y;
+	size_t		z;
+}				t_i;
 
-void			draw(t_fdf *fdf, t_ushort x, t_ushort y, int color);
-void			bresenham_init(t_bresenham *bh, t_const_vector_4 a,
-					t_const_vector_4 b);
-void			bresenham(t_fdf *fdf, t_vector_4 a, t_vector_4 b);
+void			check_file(char *filename);
+size_t			dots_in_line(char *line);
+void			scan_file(t_fdf *fdf, char *filename);
+void			fill_data(t_fdf *fdf, char *filename);
+void			input(t_fdf *fdf, char *filename);
 
 #endif

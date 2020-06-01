@@ -1615,5 +1615,45 @@
    "srcs/bresenham.c"
   ],
   "file": "srcs/bresenham.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-funroll-loops",
+   "-O1",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/input.o",
+   "srcs/input.c"
+  ],
+  "file": "srcs/input.c"
+ },
+ {
+  "directory": "/Users/secondfry/school21/school21-fdf",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-funroll-loops",
+   "-O1",
+   "-MMD",
+   "-MP",
+   "-I./includes",
+   "-I./libft",
+   "-I./minilibx_mms_20191025_beta",
+   "-c",
+   "-o",
+   "objs/graceful.o",
+   "srcs/graceful.c"
+  ],
+  "file": "srcs/graceful.c"
  }
 ]
