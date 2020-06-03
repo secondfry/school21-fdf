@@ -61,7 +61,7 @@ void	loop_calculate_matrix_local_rotation(t_fdf *fdf)
 	ft_putendl("FLAG_INVALIDATE_LOCAL_ROTATION");
 #endif
 	ft_memdel((void**)&fdf->matrix_local_rotation);
-	quaternion = quaternion_new(fdf->frame++ * M_PI_4F / 180.f, 0, 0);
+	quaternion = quaternion_new(fdf->frame++ * M_PI_F / 180.f, 0, 0);
 //	quaternion = quaternion_new(5 * M_PI_F / 180.f, 0, 0);
 //	quaternion = quaternion_new(35.264f * M_PI_2F / 90.f, M_PI_4F, 0); // isometric
 	fdf->matrix_local_rotation = quaternion_to_matrix(quaternion);
