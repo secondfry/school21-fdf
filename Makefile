@@ -21,10 +21,11 @@ LIB = libft.a
 LIB_DIR = ./libft
 
 SRC_FILES =	main.c input.c graceful.c \
-			init_1.c \
+			init_1.c init_2.c \
 			matrix_factory.c matrix_utils.c \
 			quaterion.c vector.c \
-			hooks_loop_1.c hooks_loop_2.c bresenham.c \
+			hooks_loop_1.c hooks_loop_2.c hooks_loop_3.c hooks_loop_4.c \
+			bresenham.c \
 			teapot.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))

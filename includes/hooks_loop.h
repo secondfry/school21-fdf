@@ -20,14 +20,16 @@
 # include "init.h"
 # include "matrix_factory.h"
 # include "matrix_utils.h"
-# include "quaterion.h"
 # include "bresenham.h"
 
+int		loop_key_hook(int keycode, t_fdf *fdf);
+int		loop_destroy_hook(t_fdf *fdf);
 int		loop_hook(t_fdf *fdf);
 void	loop_calculate_matrix_local_normalization(t_fdf *fdf);
 void	loop_calculate_matrix_local_scale(t_fdf *fdf);
 void	loop_calculate_matrix_local_rotation(t_fdf *fdf);
 void	loop_calculate_matrix_world_translation(t_fdf *fdf);
+void	loop_calculate_matrix_world_rotation(t_fdf *fdf);
 void	loop_calculate_matrix_world_projection(t_fdf *fdf);
 void	loop_calculate_matrix_view(t_fdf *fdf);
 void	loop_fill_image(t_fdf *fdf);

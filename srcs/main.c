@@ -46,7 +46,9 @@ void		init_pipeline(t_fdf *fdf)
 		| FLAG_INVALIDATE_LOCAL_SCALE | FLAG_INVALIDATE_LOCAL_ROTATION
 		| FLAG_INVALIDATE_LOCAL_TRANSLATION | FLAG_INVALIDATE_WORLD_TRANSLATION
 		| FLAG_INVALIDATE_WORLD_PROJECTION | FLAG_REDRAW;
-	fdf->options = 0;
+	fdf->options = OPTION_ENABLE_PERSPECTIVE;
+	fdf->camera_position = vector_new(0, 0, 1000.f, 1);
+	fdf->camera_rotation = vector_new(0, 0, 0, 1);
 	fdf->matrix_local_normalization = matrix_new_identity();
 	fdf->matrix_local_scale = matrix_new_identity();
 	fdf->matrix_local_rotation = matrix_new_identity();
@@ -71,7 +73,9 @@ int			main(int argc, char **argv)
 	input(&fdf, argv[argc - 1]);
 	init_mlx(&fdf);
 	init_mlx_image(&fdf);
-	mlx_loop_hook(fdf.mlx, (int (*)())loop_hook, &fdf);
+	mlx_hook(fdf.win, EVENT_KEY_PRESS, MASK_KEY_PRESS, loop_key_hook, &fdf);
+	mlx_hook(fdf.win, EVENT_DESTROY, MASK_DESTROY, loop_destroy_hook, &fdf);
+	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);
 	mlx_loop(fdf.mlx);
 	return (ft_atoi(argv[argc - 1]));
 }

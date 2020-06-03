@@ -30,10 +30,49 @@ void	init_local_scale(t_fdf *fdf)
 	}
 }
 
+void	init_local_rotation(t_fdf *fdf)
+{
+	t_quaterion	quaternion;
+
+	if (fdf->options & OPTION_ISOMETRIC)
+	{
+		ft_memdel((void**)&fdf->matrix_local_rotation);
+		quaternion = quaternion_new(35.264f * M_PI_2F / 90.f, M_PI_4F, 0);
+		fdf->matrix_local_rotation = quaternion_to_matrix(quaternion);
+		ft_memdel((void**)&quaternion);
+		fdf->options -= OPTION_ISOMETRIC;
+		if (fdf->options & OPTION_ENABLE_ROTATION)
+			fdf->options -= OPTION_ENABLE_ROTATION;
+	}
+	if (!(fdf->options & OPTION_ENABLE_ROTATION))
+		return ;
+	ft_memdel((void**)&fdf->matrix_local_rotation);
+	quaternion = quaternion_new(fdf->frame++ * M_PI_F / 180.f, 0, 0);
+	fdf->matrix_local_rotation = quaternion_to_matrix(quaternion);
+	ft_memdel((void**)&quaternion);
+}
+
 void	init_world_translation(t_fdf *fdf)
 {
-	if (!(fdf->options & OPTION_ENABLE_PERSPECTIVE))
-		return ;
 	ft_memdel((void**)&fdf->matrix_world_translation);
-	fdf->matrix_world_translation = matrix_new_translation(0.f, 0.f, -10.f);
+	if (!(fdf->options & OPTION_ENABLE_PERSPECTIVE))
+		fdf->matrix_world_translation = matrix_new_identity();
+	else
+		fdf->matrix_world_translation = matrix_new_translation(
+			-1 * fdf->camera_position[0],
+			-1 * fdf->camera_position[1],
+			-1 * fdf->camera_position[2]);
+}
+
+void	init_world_projection(t_fdf *fdf)
+{
+	ft_memdel((void**)&fdf->matrix_world_projection);
+	if (!(fdf->options & OPTION_ENABLE_PERSPECTIVE))
+		fdf->matrix_world_projection = matrix_new_identity();
+	else
+		fdf->matrix_world_projection = matrix_new_projection(
+			fdf->matrix_world_projection_properties[0],
+			fdf->matrix_world_projection_properties[1],
+			fdf->matrix_world_projection_properties[2],
+			fdf->matrix_world_projection_properties[3]);
 }

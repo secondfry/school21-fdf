@@ -43,7 +43,7 @@ typedef struct		s_fdf
 	int			*img_data;
 	size_t		size_line_int;
 	size_t		size_line_char;
-	t_byte		flags;
+	t_ushort	flags;
 	t_byte		options;
 	t_vector_4	camera_position;
 	t_vector_4	camera_rotation;
@@ -70,10 +70,42 @@ typedef struct		s_fdf
 # define FLAG_INVALIDATE_LOCAL_ROTATION			1u << 3u
 # define FLAG_INVALIDATE_LOCAL_TRANSLATION		1u << 2u
 # define FLAG_INVALIDATE_WORLD_TRANSLATION		1u << 4u
-# define FLAG_INVALIDATE_WORLD_PROJECTION		1u << 5u
-# define FLAG_INVALIDATE_VIEW					1u << 6u
-# define FLAG_REDRAW							1u << 7u
+# define FLAG_INVALIDATE_WORLD_ROTATION			1u << 5u
+# define FLAG_INVALIDATE_WORLD_PROJECTION		1u << 6u
+# define FLAG_INVALIDATE_VIEW					1u << 7u
+# define FLAG_REDRAW							1u << 8u
 
 # define OPTION_ENABLE_PERSPECTIVE				1u << 0u
+# define OPTION_ENABLE_ROTATION					1u << 1u
+# define OPTION_ISOMETRIC						1u << 2u
+
+# define EVENT_KEY_PRESS						2
+# define EVENT_KEY_RELEASE						3
+# define EVENT_BUTTON_PRESS						4
+# define EVENT_BUTTON_RELEASE					5
+# define EVENT_MOTION_NOTIFY					6
+# define EVENT_EXPOSE							12
+# define EVENT_DESTROY							17
+
+/*
+** https://refspecs.linuxfoundation.org/LSB_1.3.0/gLSB/gLSB/libx11-ddefs.html
+*/
+# define MASK_KEY_PRESS							1ul << 0u
+# define MASK_KEY_RELEASE						1ul << 1u
+# define MASK_BUTTON_PRESS						1ul << 2u
+# define MASK_BUTTON_RELEASE					1ul << 3u
+# define MASK_EXPOSE							1ul << 15u
+# define MASK_DESTROY							1ul << 17u
+
+# define KEY_A									0
+# define KEY_S									1
+# define KEY_D									2
+# define KEY_F									3
+# define KEY_Q									12
+# define KEY_W									13
+# define KEY_E									14
+# define KEY_R									15
+# define KEY_T									17
+# define KEY_ESC								53
 
 #endif
