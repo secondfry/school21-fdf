@@ -32,6 +32,9 @@ void	loop_fill_image(t_fdf *fdf)
 	if (!(fdf->flags & FLAG_REDRAW))
 		return ;
 	ft_bzero(fdf->img_data, fdf->size_line_char * HEIGHT);
+	for (size_t i = 0; i < fdf->size_line_int * HEIGHT; i++) {
+		fdf->z_buffer[i] = INFINITY;
+	}
 	dots = (float**)malloc(sizeof(t_vector_4) * fdf->point_count);
 	dots == 0 ? exit(ENOMEM) : 0;
 	i = fdf->point_count;
@@ -45,9 +48,10 @@ void	loop_fill_image(t_fdf *fdf)
 		bresenham_check(fdf, dots, i);
 		dot = fdf->size_line_int * (t_ushort)(dots[i][1])
 			+ (t_ushort)(dots[i][0]);
-		fdf->img_data[dot] = fdf->img_data[dot] > (0x00777777 + 0x10101 * fdf->heights[i])
-			? fdf->img_data[dot]
-			: 0x00777777 + 0x10101 * fdf->heights[i];
+		fdf->img_data[dot] = dots[i][2] < fdf->z_buffer[dot]
+							 ? 0x00777777 + 0x10101 * fdf->heights[i]
+							 : fdf->img_data[dot];
+		fdf->z_buffer[dot] = dots[i][2] < fdf->z_buffer[dot] ? dots[i][2] : fdf->z_buffer[dot];
 	}
 	loop_fill_image_cleanup(fdf, dots);
 }

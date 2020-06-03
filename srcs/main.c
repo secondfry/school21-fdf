@@ -38,6 +38,11 @@ void		init_mlx_image(t_fdf *fdf)
 		fdf->img, &bits_per_pixel, &size_line, &endianess);
 	fdf->size_line_char = (size_t)size_line;
 	fdf->size_line_int = (size_t)(size_line / 4);
+	fdf->z_buffer = (float *)malloc(sizeof(float) * fdf->size_line_int * HEIGHT);
+	fdf->z_buffer == 0 ? exit(ENOMEM) : 0;
+	for (size_t i = 0; i < fdf->size_line_int * HEIGHT; i++) {
+		fdf->z_buffer[i] = INFINITY;
+	}
 }
 
 void		init_pipeline(t_fdf *fdf)

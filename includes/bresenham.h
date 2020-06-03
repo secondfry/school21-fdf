@@ -29,14 +29,17 @@ typedef struct	s_bresenham
 	char		sx;
 	char		sy;
 	short		err;
+	float		z0;
+	float		z1;
+	float		dz;
 }				t_bresenham;
 
-void			draw(t_fdf *fdf, t_ushort x, t_ushort y, int color);
+void			draw(t_fdf *fdf, t_bresenham *bh, int color);
 void			bresenham_init(
 	t_bresenham *bh,
 	t_fdf *fdf,
 	float **dots,
-	const size_t *i);
+	const size_t i[2]);
 void			bresenham(t_fdf *fdf, float **dots, size_t a, size_t b);
 
 #endif

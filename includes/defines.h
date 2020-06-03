@@ -57,6 +57,7 @@ typedef struct		s_fdf
 	t_vector_4	matrix_world_projection_properties;
 	t_matrix_4	matrix_view;
 	float		**points;
+	float		*z_buffer;
 	t_byte		*heights;
 	size_t		point_count;
 	size_t		frame;
