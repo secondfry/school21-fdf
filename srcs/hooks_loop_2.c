@@ -29,8 +29,9 @@ void	loop_fill_image(t_fdf *fdf)
 	size_t	dot;
 	float	**dots;
 
-	if (!fdf->redraw)
+	if (!(fdf->flags & FLAG_REDRAW))
 		return ;
+	ft_bzero(fdf->img_data, fdf->size_line_char * HEIGHT);
 	dots = (float**)malloc(sizeof(t_vector_4) * fdf->point_count);
 	dots == 0 ? exit(ENOMEM) : 0;
 	i = fdf->point_count;
@@ -44,7 +45,9 @@ void	loop_fill_image(t_fdf *fdf)
 		bresenham_check(fdf, dots, i);
 		dot = fdf->size_line_int * (t_ushort)(dots[i][1])
 			+ (t_ushort)(dots[i][0]);
-		fdf->img_data[dot] = 0x00FFFF00;
+		fdf->img_data[dot] = fdf->img_data[dot] > (0x00777777 + 0x10101 * fdf->heights[i])
+			? fdf->img_data[dot]
+			: 0x00777777 + 0x10101 * fdf->heights[i];
 	}
 	loop_fill_image_cleanup(fdf, dots);
 }
@@ -52,12 +55,12 @@ void	loop_fill_image(t_fdf *fdf)
 void	bresenham_check(t_fdf *fdf, float **dots, size_t counter)
 {
 	if (counter + 1 < fdf->point_count
-		&& counter % fdf->width < (counter + 1) % fdf->width
+		&& counter % fdf->cols < (counter + 1) % fdf->cols
 		&& is_valid(dots[counter + 1]))
-		bresenham(fdf, dots[counter], dots[counter + 1]);
-	if (counter + fdf->width < fdf->point_count
-		&& is_valid(dots[counter + fdf->width]))
-		bresenham(fdf, dots[counter], dots[counter + fdf->width]);
+		bresenham(fdf, dots, counter, counter + 1);
+	if (counter + fdf->cols < fdf->point_count
+		&& is_valid(dots[counter + fdf->cols]))
+		bresenham(fdf, dots, counter, counter + fdf->cols);
 }
 
 void	loop_fill_image_cleanup(t_fdf *fdf, float **data)
@@ -74,7 +77,5 @@ void	loop_render(t_fdf *fdf)
 {
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
 	mlx_do_sync(fdf->mlx);
-	ft_bzero(fdf->img_data, fdf->size_line_char * HEIGHT);
-	fdf->options |= FLAG_INVALIDATE_ROTATION;
-	fdf->redraw = 0;
+	fdf->flags |= FLAG_INVALIDATE_LOCAL_ROTATION | FLAG_REDRAW;
 }

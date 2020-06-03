@@ -17,15 +17,18 @@
 # include "mlx.h"
 # include "libft.h"
 # include "defines.h"
+# include "init.h"
 # include "matrix_factory.h"
 # include "matrix_utils.h"
 # include "quaterion.h"
 # include "bresenham.h"
 
 int		loop_hook(t_fdf *fdf);
-void	loop_calculate_matrix_translation(t_fdf *fdf);
-void	loop_calculate_matrix_rotation(t_fdf *fdf);
-void	loop_calculate_matrix_projection(t_fdf *fdf);
+void	loop_calculate_matrix_local_normalization(t_fdf *fdf);
+void	loop_calculate_matrix_local_scale(t_fdf *fdf);
+void	loop_calculate_matrix_local_rotation(t_fdf *fdf);
+void	loop_calculate_matrix_world_translation(t_fdf *fdf);
+void	loop_calculate_matrix_world_projection(t_fdf *fdf);
 void	loop_calculate_matrix_view(t_fdf *fdf);
 void	loop_fill_image(t_fdf *fdf);
 void	bresenham_check(t_fdf *fdf, float **dots, size_t counter);

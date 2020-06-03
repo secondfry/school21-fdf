@@ -25,10 +25,11 @@ typedef struct	s_i
 	size_t		x;
 	size_t		y;
 	size_t		z;
+	size_t		z_max;
 }				t_i;
 
 void			check_file(char *filename);
-size_t			dots_in_line(char *line);
+size_t			dots_in_line(char *line, ssize_t *out);
 void			scan_file(t_fdf *fdf, char *filename);
 void			fill_data(t_fdf *fdf, char *filename);
 void			input(t_fdf *fdf, char *filename);

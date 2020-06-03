@@ -21,6 +21,7 @@ LIB = libft.a
 LIB_DIR = ./libft
 
 SRC_FILES =	main.c input.c graceful.c \
+			init_1.c \
 			matrix_factory.c matrix_utils.c \
 			quaterion.c vector.c \
 			hooks_loop_1.c hooks_loop_2.c bresenham.c \
@@ -58,20 +59,10 @@ else
 endif
 
 CFLAGS_ERRORS = -Wall -Wextra
-CFLAGS_OPTIMIZATIONS = -funroll-loops
+CFLAGS_OPTIMIZATIONS = -O3 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)
 CFLAGS_DEBUG = -O0 -pg -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
-
-ifeq ($(CC), clang)
-CFLAGS_OPTIMIZATIONS += -O1
-endif
-ifeq ($(CC), gcc)
-CFLAGS_OPTIMIZATIONS += -O3
-endif
-ifeq ($(CC), gcc-9)
-CFLAGS_OPTIMIZATIONS += -O3
-endif
 
 CFLAGS_FINAL =	$(CFLAGS_INTERNAL) \
 				$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
@@ -115,7 +106,9 @@ $(OBJS_DIR):
 $(NAME): $(OBJS) $(LIB_DIR)/$(LIB) $(MLX_DIR)/$(MLX)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
 
-clean:
+clean: clean_libs clean_self
+
+clean_libs:
 	@echo $(CYAN) "Cleaning libft" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(LIB_DIR) clean
@@ -126,10 +119,12 @@ clean:
 	$(MAKE) -C $(MLX_DIR) clean
 	@echo -n $(DEFAULT)
 
+clean_self:
 	@echo $(CYAN) "Cleaning fdf" $(DEFAULT)
 	@echo -n $(GREEN)
-	if [ -d "$(OBJS_DIR)" ]; then rm -rf $(OBJS_DIR); fi
+	if [ -d "$(OBJS_DIR)" ]; then rm -rfv $(OBJS_DIR); fi
 	@echo -n $(DEFAULT)
+
 
 fclean: clean
 	@echo $(CYAN) "Purging libft" $(DEFAULT)
@@ -148,7 +143,7 @@ fclean: clean
 	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
 	@echo -n $(DEFAULT)
 
-debug: clean
+debug: clean_self
 	CFLAGS="$(CFLAGS_DEBUG)" $(MAKE) all
 
 re: fclean all

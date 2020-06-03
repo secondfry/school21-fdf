@@ -42,14 +42,23 @@ void		init_mlx_image(t_fdf *fdf)
 
 void		init_pipeline(t_fdf *fdf)
 {
-	fdf->matrix_translation = matrix_new_identity();
-	fdf->matrix_rotation = matrix_new_identity();
-	fdf->matrix_projection = matrix_new_identity();
-	fdf->matrix_view = matrix_new_identity();
-	fdf->options = FLAG_INVALIDATE_TRANSLATION | FLAG_INVALIDATE_ROTATION
-		| FLAG_INVALIDATE_PROJECTION;
-	fdf->matrix_projection_properties = vector_new(
+	fdf->flags = FLAG_INVALIDATE_LOCAL_NORMALIZATION
+		| FLAG_INVALIDATE_LOCAL_SCALE | FLAG_INVALIDATE_LOCAL_ROTATION
+		| FLAG_INVALIDATE_LOCAL_TRANSLATION | FLAG_INVALIDATE_WORLD_TRANSLATION
+		| FLAG_INVALIDATE_WORLD_PROJECTION | FLAG_REDRAW;
+	fdf->options = 0;
+	fdf->matrix_local_normalization = matrix_new_identity();
+	fdf->matrix_local_scale = matrix_new_identity();
+	fdf->matrix_local_rotation = matrix_new_identity();
+	fdf->matrix_local_translation = matrix_new_identity();
+	fdf->matrix_world_translation = matrix_new_identity();
+	fdf->matrix_world_rotation = matrix_new_identity();
+	fdf->matrix_world_projection = matrix_new_identity();
+	fdf->matrix_world_projection_properties = vector_new(
 		90.0f, WIDTH / (float)HEIGHT, 0.1f, 100.0f);
+	fdf->matrix_view = matrix_new_identity();
+	fdf->point_count = 0;
+	fdf->frame = 0;
 }
 
 int			main(int argc, char **argv)
@@ -58,13 +67,11 @@ int			main(int argc, char **argv)
 
 	if (argc < 2)
 		return (EINVAL);
-	fdf.point_count = 0;
+	init_pipeline(&fdf);
 	input(&fdf, argv[argc - 1]);
 	init_mlx(&fdf);
 	init_mlx_image(&fdf);
-	init_pipeline(&fdf);
-	fdf.redraw = 1;
-	mlx_loop_hook(fdf.mlx, loop_hook, &fdf);
+	mlx_loop_hook(fdf.mlx, (int (*)())loop_hook, &fdf);
 	mlx_loop(fdf.mlx);
 	return (ft_atoi(argv[argc - 1]));
 }
