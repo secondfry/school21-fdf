@@ -59,7 +59,7 @@ else
 	endif
 endif
 
-CFLAGS_ERRORS = -Wall -Wextra
+CFLAGS_ERRORS = -Wall -Wextra -Werror
 CFLAGS_OPTIMIZATIONS = -O3 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)

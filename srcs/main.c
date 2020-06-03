@@ -46,7 +46,7 @@ void		init_pipeline(t_fdf *fdf)
 		| FLAG_INVALIDATE_LOCAL_SCALE | FLAG_INVALIDATE_LOCAL_ROTATION
 		| FLAG_INVALIDATE_LOCAL_TRANSLATION | FLAG_INVALIDATE_WORLD_TRANSLATION
 		| FLAG_INVALIDATE_WORLD_PROJECTION | FLAG_REDRAW;
-	fdf->options = OPTION_ENABLE_PERSPECTIVE;
+	fdf->options = OPTION_ENABLE_PERSPECTIVE | OPTION_ROTATION_X;
 	fdf->camera_position = vector_new(0, 0, 1000.f, 1);
 	fdf->camera_rotation = vector_new(0, 0, 0, 1);
 	fdf->matrix_local_normalization = matrix_new_identity();
@@ -60,7 +60,7 @@ void		init_pipeline(t_fdf *fdf)
 		90.0f, WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 	fdf->matrix_view = matrix_new_identity();
 	fdf->point_count = 0;
-	fdf->frame = 0;
+	ft_bzero(&(fdf->frame), sizeof(size_t) * 3);
 }
 
 int			main(int argc, char **argv)

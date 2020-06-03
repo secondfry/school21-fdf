@@ -43,12 +43,12 @@ int		get_color(t_bresenham *bh)
 	char	h[2];
 
 	if (!bh->dh)
-		return 0x777777 + 0x10101 * bh->h0;
+		return 0x111111 + 0x10101 * bh->h0;
 	if (bh->dx)
 		h[0] = bh->h1 - bh->dh * (bh->x0 - bh->x1) / bh->dx * bh->sx;
 	if (bh->dy)
 		h[1] = bh->h1 - bh->dh * (bh->y1 - bh->y0) / bh->dy * bh->sy;
-	return (0x777777 + 0x10101 * (abs(bh->dx) > abs(bh->dy) ? h[0] : h[1]));
+	return (0x111111 + (0x10101 * (abs(bh->dx) > abs(bh->dy) ? h[0] : h[1])) & 0x00FFFFFF);
 }
 
 void	bresenham(t_fdf *fdf, float **dots, size_t a, size_t b)

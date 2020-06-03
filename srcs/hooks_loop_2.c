@@ -46,8 +46,8 @@ void	loop_fill_image(t_fdf *fdf)
 		dot = fdf->size_line_int * (t_ushort)(dots[i][1])
 			+ (t_ushort)(dots[i][0]);
 		fdf->img_data[dot] = fdf->img_data[dot] >
-			(0x00777777 + 0x10101 * fdf->heights[i]) ? fdf->img_data[dot]
-			: 0x00777777 + 0x10101 * fdf->heights[i];
+			(0x00111111 + 0x00010101 * fdf->heights[i]) ? fdf->img_data[dot]
+			: 0x00111111 + 0x00010101 * fdf->heights[i];
 	}
 	loop_fill_image_cleanup(fdf, dots);
 }
@@ -88,6 +88,10 @@ void	loop_render(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 30, 100, 0xFFFFF, ft_itoa(fdf->camera_position[1]));
 	mlx_string_put(fdf->mlx, fdf->win, 10, 110, 0xFFFFF, "Z:");
 	mlx_string_put(fdf->mlx, fdf->win, 30, 110, 0xFFFFF, ft_itoa(fdf->camera_position[2]));
+	mlx_string_put(fdf->mlx, fdf->win, 10, 130, 0xFFFFF, "Rotating:");
+	fdf->options & OPTION_ROTATION_X ? mlx_string_put(fdf->mlx, fdf->win, 10, 150, 0xFFFFF, "X") : 0;
+	fdf->options & OPTION_ROTATION_Y ? mlx_string_put(fdf->mlx, fdf->win, 30, 150, 0xFFFFF, "Y") : 0;
+	fdf->options & OPTION_ROTATION_Z ? mlx_string_put(fdf->mlx, fdf->win, 50, 150, 0xFFFFF, "Z") : 0;
 	mlx_do_sync(fdf->mlx);
 	if (fdf->options & OPTION_ENABLE_ROTATION)
 		fdf->flags |= FLAG_INVALIDATE_LOCAL_ROTATION;

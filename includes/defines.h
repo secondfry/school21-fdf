@@ -59,7 +59,7 @@ typedef struct		s_fdf
 	float		**points;
 	t_byte		*heights;
 	size_t		point_count;
-	size_t		frame;
+	t_ushort	frame[3];
 	size_t		cols;
 	size_t		rows;
 	size_t		height;
@@ -78,6 +78,9 @@ typedef struct		s_fdf
 # define OPTION_ENABLE_PERSPECTIVE				1u << 0u
 # define OPTION_ENABLE_ROTATION					1u << 1u
 # define OPTION_ISOMETRIC						1u << 2u
+# define OPTION_ROTATION_X						1u << 3u
+# define OPTION_ROTATION_Y						1u << 4u
+# define OPTION_ROTATION_Z						1u << 5u
 
 # define EVENT_KEY_PRESS						2
 # define EVENT_KEY_RELEASE						3
@@ -106,6 +109,9 @@ typedef struct		s_fdf
 # define KEY_E									14
 # define KEY_R									15
 # define KEY_T									17
+# define KEY_Z									6
+# define KEY_X									7
+# define KEY_C									8
 # define KEY_ESC								53
 
 #endif

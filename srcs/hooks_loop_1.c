@@ -55,10 +55,13 @@ int		loop_key_hook(int keycode, t_fdf *fdf)
 	keycode == KEY_R ? fdf->options ^= OPTION_ENABLE_ROTATION : 0;
 	keycode == KEY_F ? toggle_perspective(fdf) : 0;
 	keycode == KEY_T ? force_isometric(fdf) : 0;
+	keycode == KEY_Z ? fdf->options ^= OPTION_ROTATION_X : 0;
+	keycode == KEY_X ? fdf->options ^= OPTION_ROTATION_Y : 0;
+	keycode == KEY_C ? fdf->options ^= OPTION_ROTATION_Z : 0;
 	return (0);
 }
 
-int		loop_destroy_hook(t_fdf *fdf)
+int		loop_destroy_hook()
 {
 	ft_putendl("Goodbye!");
 	exit(0);
