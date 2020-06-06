@@ -47,17 +47,21 @@ OBJECTS = 	$(patsubst %,objs/ft_%.o,$(LFT_FUNCTIONS)) \
 OBJ_DIR = ./objs
 
 CFLAGS_ERRORS = -Wall -Wextra -Werror
-CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
+CFLAGS_OPTIMIZATIONS = -O3 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_SO = -fPIC -shared
-CFLAGS_DEBUG = -g -fno-omit-frame-pointer -fsanitize=address
+CFLAGS_DEBUG = -O0 -pg -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fsanitize=address
 CFLAGS_FINAL =	$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
 				$(CFLAGS_DEPENDENCIES) $(CFLAGS)
 
 NAME = libft.a
 DYNN = libft.so
 
-CC = gcc
+ifeq ($(origin CC), default)
+CC = clang
+endif
+
+.PHONY: all clean fclean re so
 
 all: $(NAME)
 
@@ -84,5 +88,3 @@ fclean: clean
 	rm -f $(NAME) $(DYNN)
 
 re: fclean all
-
-.PHONY: all clean fclean re so

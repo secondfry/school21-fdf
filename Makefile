@@ -6,7 +6,7 @@
 #    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/15 00:45:53 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/03/15 21:31:00 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,13 @@ OBJS_DIR = ./objs
 LIB = libft.a
 LIB_DIR = ./libft
 
-SRC_FILES =	main.c \
-			color.c vertex.c vector.c
+SRC_FILES =	main.c input.c graceful.c \
+			init_1.c init_2.c \
+			matrix_factory.c matrix_utils.c \
+			quaterion.c vector.c \
+			hooks_loop_1.c hooks_loop_2.c hooks_loop_3.c hooks_loop_4.c \
+			bresenham.c \
+			teapot.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))
@@ -54,11 +59,12 @@ else
 	endif
 endif
 
-CFLAGS_ERRORS = -Wall -Wextra
-CFLAGS_OPTIMIZATIONS = -O1 -funroll-loops
+CFLAGS_ERRORS = -Wall -Wextra -Werror
+CFLAGS_OPTIMIZATIONS = -O3 -funroll-loops
 CFLAGS_DEPENDENCIES = -MMD -MP
 CFLAGS_INCLUDES = -I$(INCLUDES_DIR) -I$(LIB_DIR) -I$(MLX_DIR)
-CFLAGS_DEBUG = -g -fno-omit-frame-pointer
+CFLAGS_DEBUG = -O0 -pg -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer
+
 CFLAGS_FINAL =	$(CFLAGS_INTERNAL) \
 				$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) \
 				$(CFLAGS_DEPENDENCIES) $(CFLAGS_INCLUDES) \
@@ -77,12 +83,13 @@ CYAN = "\033[0;36m"
 all:
 	@echo $(CYAN) "Making libft" $(DEFAULT)
 	@echo -n $(BLUE)
-	$(MAKE) $(LIB_DIR)/$(LIB)
+	CC="$(CC)" $(MAKE) -C $(LIB_DIR)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Making minilibx" $(DEFAULT)
 	@echo -n $(BLUE)
-	$(MAKE) $(MLX_DIR)/$(MLX)
+	CC="$(CC)" $(MAKE) -C $(MLX_DIR)
+	cp $(MLX_DIR)/$(MLX) $(MLX)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Making fdf" $(DEFAULT)
@@ -97,16 +104,12 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJS_DIR)
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIB_DIR)/$(LIB) $(MLX_DIR)/$(MLX)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
 
-$(LIB_DIR)/$(LIB):
-	$(MAKE) -C $(LIB_DIR)
+clean: clean_libs clean_self
 
-$(MLX_DIR)/$(MLX):
-	$(MAKE) -C $(MLX_DIR)
-
-clean:
+clean_libs:
 	@echo $(CYAN) "Cleaning libft" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(LIB_DIR) clean
@@ -117,10 +120,12 @@ clean:
 	$(MAKE) -C $(MLX_DIR) clean
 	@echo -n $(DEFAULT)
 
+clean_self:
 	@echo $(CYAN) "Cleaning fdf" $(DEFAULT)
 	@echo -n $(GREEN)
-	if [ -d "$(OBJS_DIR)" ]; then rm -rf $(OBJS_DIR); fi
+	if [ -d "$(OBJS_DIR)" ]; then rm -rfv $(OBJS_DIR); fi
 	@echo -n $(DEFAULT)
+
 
 fclean: clean
 	@echo $(CYAN) "Purging libft" $(DEFAULT)
@@ -131,11 +136,15 @@ fclean: clean
 	@echo $(CYAN) "Purging minilibx" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(MLX_DIR) fclean
+	rm -rfv $(MLX)
 	@echo -n $(DEFAULT)
 
 	@echo $(CYAN) "Purging fdf" $(DEFAULT)
 	@echo -n $(GREEN)
 	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
 	@echo -n $(DEFAULT)
+
+debug: clean_self
+	CFLAGS="$(CFLAGS_DEBUG)" $(MAKE) all
 
 re: fclean all

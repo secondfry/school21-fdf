@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   matrix_utils.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:20:35 by oadhesiv          #+#    #+#             */
-/*   Updated: 2019/05/18 14:22:16 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/15 01:09:34 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/05/31 13:51:08 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MATRIX_UTILS_H
+# define MATRIX_UTILS_H
 
-void	ft_lstadd(t_list **alst, t_list *elem)
-{
-	if (!alst)
-	{
-		alst = &elem;
-		return ;
-	}
-	if (!*alst)
-	{
-		*alst = elem;
-		return ;
-	}
-	elem->next = *alst;
-	*alst = elem;
-}
+# include "libft.h"
+# include "defines.h"
+
+t_vector_4	matrix_on_vector(t_const_matrix_4 m, t_const_vector_4 v);
+t_matrix_4	matrix_on_matrix(t_const_matrix_4 a, t_const_matrix_4 b);
+
+#endif

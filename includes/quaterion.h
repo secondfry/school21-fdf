@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vertex.h                                           :+:      :+:    :+:   */
+/*   quaterion.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 01:09:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/03/13 22:10:46 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/03/15 01:08:07 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/05/31 13:51:09 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VERTEX_H
-# define VERTEX_H
+#ifndef QUATERION_H
+# define QUATERION_H
 
-# include <stdarg.h>
-# include <stdlib.h>
+# include <math.h>
 # include "libft.h"
 # include "defines.h"
-# include "color.h"
 
-t_vertex	*vertex_new(size_t args, double x, double y, double z, ...);
-t_vertex	*vertex_copy(t_vertex *self);
-void		vertex_free(t_vertex *self);
-void		vertex_print(t_vertex *self);
+t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z);
+t_matrix_4	quaternion_to_matrix(t_const_quaterion self);
 
 #endif

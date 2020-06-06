@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   graceful.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oadhesiv <oadhesiv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 14:20:35 by oadhesiv          #+#    #+#             */
-/*   Updated: 2019/05/18 14:22:16 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/06/01 06:30:54 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/06/01 06:35:53 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "graceful.h"
 
-void	ft_lstadd(t_list **alst, t_list *elem)
+void	graceful(size_t reason, const char *msg)
 {
-	if (!alst)
-	{
-		alst = &elem;
-		return ;
-	}
-	if (!*alst)
-	{
-		*alst = elem;
-		return ;
-	}
-	elem->next = *alst;
-	*alst = elem;
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 2);
+	exit(reason);
 }
