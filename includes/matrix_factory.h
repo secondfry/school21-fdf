@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 01:07:08 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/05/31 13:51:07 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/06 21:47:02 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ t_matrix_4	matrix_new_projection(
 	float near,
 	float far
 );
-t_matrix_4	matrix_new_projection_ortho(float fov, float ratio, float near, float far);
+t_matrix_4	matrix_new_projection_ortho(
+	float fov,
+	float ratio,
+	float near,
+	float far
+);
 
 #endif
