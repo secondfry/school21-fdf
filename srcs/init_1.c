@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/06 21:41:19 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/06/06 22:03:39 by oadhesiv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "init.h"
 
 void	init_local_normalization(t_fdf *fdf)
@@ -47,10 +59,8 @@ void	init_local_rotation(t_fdf *fdf)
 	if (!(fdf->options & OPTION_ENABLE_ROTATION))
 		return ;
 	ft_memdel((void**)&fdf->matrix_local_rotation);
-	quaternion = quaternion_new(
-		fdf->frame[0] * M_PI_F / 180.f,
-		fdf->frame[1] * M_PI_F / 180.f,
-		fdf->frame[2] * M_PI_F / 180.f);
+	quaternion = quaternion_new(fdf->frame[0] * M_PI_F / 180.f,
+		fdf->frame[1] * M_PI_F / 180.f, fdf->frame[2] * M_PI_F / 180.f);
 	fdf->options & OPTION_ROTATION_X ? fdf->frame[0]++ : 0;
 	fdf->options & OPTION_ROTATION_Y ? fdf->frame[1]++ : 0;
 	fdf->options & OPTION_ROTATION_Z ? fdf->frame[2]++ : 0;

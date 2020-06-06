@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oadhesiv <secondfry+school21@gmail.com>    +#+  +:+       +#+         #
+#    By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/03/15 21:31:00 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/06/06 22:04:43 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,14 @@ OBJS_DIR = ./objs
 LIB = libft.a
 LIB_DIR = ./libft
 
-SRC_FILES =	main.c input.c graceful.c \
+SRC_FILES =	main.c graceful.c \
+			input_1.c input_2.c \
 			init_1.c init_2.c \
-			matrix_factory.c matrix_utils.c \
+			matrix_factory_1.c matrix_factory_2.c matrix_utils.c \
 			quaterion.c vector.c \
 			hooks_loop_1.c hooks_loop_2.c hooks_loop_3.c hooks_loop_4.c \
-			bresenham.c \
-			teapot.c
+			hooks_loop_5.c \
+			bresenham.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o, $(SRCS))
@@ -78,7 +79,7 @@ GREEN = "\033[0;32m"
 BLUE = "\033[0;34m"
 CYAN = "\033[0;36m"
 
-.PHONY: all clean fclean re
+.PHONY: all clean clean_libs clean_self fclean fclean_libs fclean_self debug re
 
 all:
 	@echo $(CYAN) "Making libft" $(DEFAULT)
@@ -126,8 +127,9 @@ clean_self:
 	if [ -d "$(OBJS_DIR)" ]; then rm -rfv $(OBJS_DIR); fi
 	@echo -n $(DEFAULT)
 
+fclean: fclean_libs fclean_self
 
-fclean: clean
+fclean_libs:
 	@echo $(CYAN) "Purging libft" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(LIB_DIR) fclean
@@ -139,9 +141,10 @@ fclean: clean
 	rm -rfv $(MLX)
 	@echo -n $(DEFAULT)
 
+fclean_self:
 	@echo $(CYAN) "Purging fdf" $(DEFAULT)
 	@echo -n $(GREEN)
-	if [ -f "$(NAME)" ]; then rm -rf $(NAME); fi
+	if [ -f "$(NAME)" ]; then rm -rfv $(NAME); fi
 	@echo -n $(DEFAULT)
 
 debug: clean_self

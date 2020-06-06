@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 05:27:15 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 05:44:00 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/06 21:49:22 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ void	draw(t_fdf *fdf, t_ushort x, t_ushort y, int color)
 	fdf->img_data[dot] = color;
 }
 
-void	bresenham_init(t_bresenham *bh, t_fdf *fdf, float **dots, const size_t i[2])
+void	bresenham_init(
+	t_bresenham *bh,
+	t_fdf *fdf,
+	float **dots,
+	const size_t i[2]
+)
 {
 	bh->x0 = (t_ushort)dots[i[0]][0];
 	bh->y0 = (t_ushort)dots[i[0]][1];
@@ -40,15 +45,16 @@ void	bresenham_init(t_bresenham *bh, t_fdf *fdf, float **dots, const size_t i[2]
 
 int		get_color(t_bresenham *bh)
 {
-	char	h[2];
+	char	h[3];
 
 	if (!bh->dh)
-		return 0x111111 + 0x10101 * bh->h0;
+		return (0x111111 + 0x10101 * bh->h0);
 	if (bh->dx)
 		h[0] = bh->h1 - bh->dh * (bh->x0 - bh->x1) / bh->dx * bh->sx;
 	if (bh->dy)
 		h[1] = bh->h1 - bh->dh * (bh->y1 - bh->y0) / bh->dy * bh->sy;
-	return (0x111111 + (0x10101 * (abs(bh->dx) > abs(bh->dy) ? h[0] : h[1])) & 0x00FFFFFF);
+	h[2] = abs(bh->dx) > abs(bh->dy) ? h[0] : h[1];
+	return ((0x111111 + 0x10101 * h[2]) & 0x00FFFFFF);
 }
 
 void	bresenham(t_fdf *fdf, float **dots, size_t a, size_t b)

@@ -35,6 +35,9 @@ void	loop_calculate_matrix_view(t_fdf *fdf);
 void	loop_fill_image(t_fdf *fdf);
 void	bresenham_check(t_fdf *fdf, float **dots, size_t counter);
 void	loop_fill_image_cleanup(t_fdf *fdf, float **data);
-void	loop_render(t_fdf *fdf);
+void	loop_put_image(t_fdf *fdf);
+void	loop_before_next_update(t_fdf *fdf);
+void	loop_render_hud_1(t_fdf *fdf);
+void	loop_render_hud_2(t_fdf *fdf);
 
 #endif
