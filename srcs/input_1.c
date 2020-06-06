@@ -29,12 +29,14 @@ void	check_file(char *filename)
 	ssize_t	res;
 
 	fd = open(filename, O_RDWR);
-	fd == -1 ? graceful(EINVAL, "Provide valid file argument, please.") : 0;
+	fd == -1 ? graceful(EINVAL, "Provide valid map file argument, please. "
+							 "Can't open this one.") : 0;
 	res = close(fd);
 	res == -1 ? graceful(EINVAL, "Close failed!") : 0;
 	fd = open(filename, O_RDONLY);
 	res = read(fd, 0, 0);
-	res == -1 ? graceful(EINVAL, "Read failed!") : 0;
+	res == -1 ? graceful(EINVAL, "Provide valid map file argument, please. "
+							  "Can't read this one.") : 0;
 	res = close(fd);
 	res == -1 ? graceful(EINVAL, "Close failed!") : 0;
 }
