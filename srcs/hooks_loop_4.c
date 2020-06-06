@@ -72,7 +72,7 @@ void	loop_render_hud_2(t_fdf *fdf)
 	fdf->options & OPTION_ROTATION_X
 		? mlx_string_put(fdf->mlx, fdf->win, 10, 160, 0xFFFFF, "X") : 0;
 	fdf->options & OPTION_ROTATION_Y
-		? mlx_string_put(fdf->mlx, fdf->win, 30, 170, 0xFFFFF, "Y") : 0;
+		? mlx_string_put(fdf->mlx, fdf->win, 30, 160, 0xFFFFF, "Y") : 0;
 	fdf->options & OPTION_ROTATION_Z
-		? mlx_string_put(fdf->mlx, fdf->win, 50, 180, 0xFFFFF, "Z") : 0;
+		? mlx_string_put(fdf->mlx, fdf->win, 50, 160, 0xFFFFF, "Z") : 0;
 }
