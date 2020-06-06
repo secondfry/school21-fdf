@@ -47,23 +47,16 @@ void	init_local_rotation(t_fdf *fdf)
 	t_quaterion	quaternion;
 
 	if (fdf->options & OPTION_ISOMETRIC)
-	{
-		ft_memdel((void**)&fdf->matrix_local_rotation);
-		quaternion = quaternion_new(35.264f * M_PI_2F / 90.f, M_PI_4F, 0);
-		fdf->matrix_local_rotation = quaternion_to_matrix(quaternion);
-		ft_memdel((void**)&quaternion);
-		fdf->options -= OPTION_ISOMETRIC;
-		if (fdf->options & OPTION_ENABLE_ROTATION)
-			fdf->options -= OPTION_ENABLE_ROTATION;
-	}
-	if (!(fdf->options & OPTION_ENABLE_ROTATION))
-		return ;
+		return (init_local_rotation_isometric(fdf));
 	ft_memdel((void**)&fdf->matrix_local_rotation);
 	quaternion = quaternion_new(fdf->frame[0] * M_PI_F / 180.f,
 		fdf->frame[1] * M_PI_F / 180.f, fdf->frame[2] * M_PI_F / 180.f);
-	fdf->options & OPTION_ROTATION_X ? fdf->frame[0]++ : 0;
-	fdf->options & OPTION_ROTATION_Y ? fdf->frame[1]++ : 0;
-	fdf->options & OPTION_ROTATION_Z ? fdf->frame[2]++ : 0;
+	if (fdf->options & OPTION_ENABLE_ROTATION)
+	{
+		fdf->options & OPTION_ROTATION_X ? fdf->frame[0]++ : 0;
+		fdf->options & OPTION_ROTATION_Y ? fdf->frame[1]++ : 0;
+		fdf->options & OPTION_ROTATION_Z ? fdf->frame[2]++ : 0;
+	}
 	fdf->frame[0] = fdf->frame[0] % 360;
 	fdf->frame[1] = fdf->frame[1] % 360;
 	fdf->frame[2] = fdf->frame[2] % 360;

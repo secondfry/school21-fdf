@@ -67,7 +67,8 @@ int			main(int argc, char **argv)
 {
 	t_fdf	fdf;
 
-	if (argc != 2) {
+	if (argc != 2)
+	{
 		ft_putendl_fd("Provide one valid map file argument, please.", 2);
 		return (EINVAL);
 	}

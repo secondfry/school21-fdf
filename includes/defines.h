@@ -104,6 +104,7 @@ typedef struct		s_fdf
 # define KEY_S									1
 # define KEY_D									2
 # define KEY_F									3
+# define KEY_G									5
 # define KEY_Q									12
 # define KEY_W									13
 # define KEY_E									14

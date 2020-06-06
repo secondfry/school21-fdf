@@ -47,30 +47,32 @@ void	loop_render_hud_1(t_fdf *fdf)
 		"Camera Perspective: F");
 	mlx_string_put(fdf->mlx, fdf->win, 10, 70, 0xFFFFF,
 		"Force Isometric: T");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 80, 0xFFFFF,
+		"Reset Rotation: G");
 }
 
 void	loop_render_hud_2(t_fdf *fdf)
 {
 	char *tmp;
 
-	mlx_string_put(fdf->mlx, fdf->win, 10, 90, 0xFFFFF, "Camera Position:");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 100, 0xFFFFF, "X:");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 110, 0xFFFFF, "Y:");
-	mlx_string_put(fdf->mlx, fdf->win, 10, 120, 0xFFFFF, "Z:");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 100, 0xFFFFF, "Camera Position:");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 110, 0xFFFFF, "X:");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 120, 0xFFFFF, "Y:");
+	mlx_string_put(fdf->mlx, fdf->win, 10, 130, 0xFFFFF, "Z:");
 	tmp = ft_itoa(fdf->camera_position[0]);
-	mlx_string_put(fdf->mlx, fdf->win, 30, 100, 0xFFFFF, tmp);
-	ft_memdel((void**)&tmp);
-	tmp = ft_itoa(fdf->camera_position[1]);
 	mlx_string_put(fdf->mlx, fdf->win, 30, 110, 0xFFFFF, tmp);
 	ft_memdel((void**)&tmp);
-	tmp = ft_itoa(fdf->camera_position[2]);
+	tmp = ft_itoa(fdf->camera_position[1]);
 	mlx_string_put(fdf->mlx, fdf->win, 30, 120, 0xFFFFF, tmp);
 	ft_memdel((void**)&tmp);
-	mlx_string_put(fdf->mlx, fdf->win, 10, 140, 0xFFFFF, "Rotating:");
+	tmp = ft_itoa(fdf->camera_position[2]);
+	mlx_string_put(fdf->mlx, fdf->win, 30, 130, 0xFFFFF, tmp);
+	ft_memdel((void**)&tmp);
+	mlx_string_put(fdf->mlx, fdf->win, 10, 150, 0xFFFFF, "Rotating:");
 	fdf->options & OPTION_ROTATION_X
-		? mlx_string_put(fdf->mlx, fdf->win, 10, 150, 0xFFFFF, "X") : 0;
+		? mlx_string_put(fdf->mlx, fdf->win, 10, 160, 0xFFFFF, "X") : 0;
 	fdf->options & OPTION_ROTATION_Y
-		? mlx_string_put(fdf->mlx, fdf->win, 30, 150, 0xFFFFF, "Y") : 0;
+		? mlx_string_put(fdf->mlx, fdf->win, 30, 170, 0xFFFFF, "Y") : 0;
 	fdf->options & OPTION_ROTATION_Z
-		? mlx_string_put(fdf->mlx, fdf->win, 50, 150, 0xFFFFF, "Z") : 0;
+		? mlx_string_put(fdf->mlx, fdf->win, 50, 180, 0xFFFFF, "Z") : 0;
 }

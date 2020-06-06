@@ -63,3 +63,13 @@ void	loop_calculate_matrix_view(t_fdf *fdf)
 	fdf->flags -= FLAG_INVALIDATE_VIEW;
 	fdf->flags |= FLAG_REDRAW;
 }
+
+void	reset_rotation(t_fdf *fdf)
+{
+	fdf->frame[0] = 0;
+	fdf->frame[1] = 0;
+	fdf->frame[2] = 0;
+	fdf->flags |= FLAG_INVALIDATE_LOCAL_ROTATION | FLAG_REDRAW;
+	if (fdf->options & OPTION_ENABLE_ROTATION)
+		fdf->options -= OPTION_ENABLE_ROTATION;
+}

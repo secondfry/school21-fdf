@@ -39,5 +39,6 @@ void	loop_put_image(t_fdf *fdf);
 void	loop_before_next_update(t_fdf *fdf);
 void	loop_render_hud_1(t_fdf *fdf);
 void	loop_render_hud_2(t_fdf *fdf);
+void	reset_rotation(t_fdf *fdf);
 
 #endif

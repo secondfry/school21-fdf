@@ -22,6 +22,7 @@
 void	init_local_normalization(t_fdf *fdf);
 void	init_local_scale(t_fdf *fdf);
 void	init_local_rotation(t_fdf *fdf);
+void	init_local_rotation_isometric(t_fdf *fdf);
 void	init_world_translation(t_fdf *fdf);
 void	init_world_rotation(t_fdf *fdf);
 void	init_world_projection(t_fdf *fdf);
