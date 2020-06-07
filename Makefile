@@ -130,7 +130,7 @@ clean_self:
 
 fclean: fclean_libs fclean_self
 
-fclean_libs:
+fclean_libs: clean_libs
 	@echo $(CYAN) "Purging libft" $(DEFAULT)
 	@echo -n $(BLUE)
 	$(MAKE) -C $(LIB_DIR) fclean
@@ -142,7 +142,7 @@ fclean_libs:
 	rm -rfv $(MLX)
 	@echo -n $(DEFAULT)
 
-fclean_self:
+fclean_self: clean_self
 	@echo $(CYAN) "Purging fdf" $(DEFAULT)
 	@echo -n $(GREEN)
 	if [ -f "$(NAME)" ]; then rm -rfv $(NAME); fi
