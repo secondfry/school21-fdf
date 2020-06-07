@@ -76,7 +76,7 @@ void	fill_line(t_fdf *fdf, char *line, t_i *i)
 		i->z = ft_atoi(dots[i->x]);
 		i->z_max = i->z_max > i->z ? i->z_max : i->z;
 		fdf->points[i->d] = vector_new(i->x, -1.f * i->y, i->z, 1.f);
-		fdf->heights[i->d] = 230 * i->z / fdf->height;
+		fdf->heights[i->d] = fdf->height == 0 ? 230 : 230 * i->z / fdf->height;
 		ft_memdel((void**)dots + i->x);
 		i->x++;
 		i->d++;
