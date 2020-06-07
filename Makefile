@@ -6,7 +6,7 @@
 #    By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 13:58:56 by oadhesiv          #+#    #+#              #
-#    Updated: 2020/06/06 22:04:43 by oadhesiv         ###   ########.fr        #
+#    Updated: 2020/06/07 07:20:47 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,9 @@ ifeq ($(OS),Windows_NT)
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
-		MLX = libmlx.dylib
-		MLX_DIR = ./minilibx_mms_20191025_beta
+		MLX = libmlx.a
+		MLX_DIR = ./minilibx
+		LDFLAGS += -lX11 -lXext -lm
 	endif
 	ifeq ($(UNAME_S),Darwin)
 		UNAME_R := $(shell uname -r | cut -d. -f1)
@@ -106,7 +107,7 @@ $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS) $(LIB_DIR)/$(LIB) $(MLX_DIR)/$(MLX)
-	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
+	$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 clean: clean_libs clean_self
 

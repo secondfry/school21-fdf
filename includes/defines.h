@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/06 21:46:11 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/07 07:23:11 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,19 +100,37 @@ typedef struct		s_fdf
 # define MASK_EXPOSE							1ul << 15u
 # define MASK_DESTROY							1ul << 17u
 
-# define KEY_A									0
-# define KEY_S									1
-# define KEY_D									2
-# define KEY_F									3
-# define KEY_G									5
-# define KEY_Q									12
-# define KEY_W									13
-# define KEY_E									14
-# define KEY_R									15
-# define KEY_T									17
-# define KEY_Z									6
-# define KEY_X									7
-# define KEY_C									8
-# define KEY_ESC								53
+# ifdef __APPLE__
+#  define KEY_A									0
+#  define KEY_S									1
+#  define KEY_D									2
+#  define KEY_F									3
+#  define KEY_G									5
+#  define KEY_Q									12
+#  define KEY_W									13
+#  define KEY_E									14
+#  define KEY_R									15
+#  define KEY_T									17
+#  define KEY_Z									6
+#  define KEY_X									7
+#  define KEY_C									8
+#  define KEY_ESC								53
+# else
+#  define KEY_A									97
+#  define KEY_C									99
+#  define KEY_D									100
+#  define KEY_E									101
+#  define KEY_F									102
+#  define KEY_G									103
+#  define KEY_H									104
+#  define KEY_Q									113
+#  define KEY_R									114
+#  define KEY_S									115
+#  define KEY_T									116
+#  define KEY_W									119
+#  define KEY_X									120
+#  define KEY_Z									122
+#  define KEY_ESC								65307
+# endif
 
 #endif
