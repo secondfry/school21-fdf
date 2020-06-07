@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 20:50:30 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 05:08:09 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/06 21:46:13 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	loop_calculate_matrix_view(t_fdf *fdf);
 void	loop_fill_image(t_fdf *fdf);
 void	bresenham_check(t_fdf *fdf, float **dots, size_t counter);
 void	loop_fill_image_cleanup(t_fdf *fdf, float **data);
-void	loop_render(t_fdf *fdf);
+void	loop_put_image(t_fdf *fdf);
+void	loop_before_next_update(t_fdf *fdf);
+void	loop_render_hud_1(t_fdf *fdf);
+void	loop_render_hud_2(t_fdf *fdf);
+void	reset_rotation(t_fdf *fdf);
 
 #endif

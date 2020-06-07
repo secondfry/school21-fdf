@@ -6,7 +6,7 @@
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:04:51 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/06/01 05:08:21 by oadhesiv         ###   ########.fr       */
+/*   Updated: 2020/06/06 21:46:11 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ typedef struct		s_fdf
 # define KEY_S									1
 # define KEY_D									2
 # define KEY_F									3
+# define KEY_G									5
 # define KEY_Q									12
 # define KEY_W									13
 # define KEY_E									14

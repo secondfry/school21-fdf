@@ -5,12 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 01:05:46 by oadhesiv          #+#    #+#             */
-/*   Updated: 2020/05/31 13:57:51 by oadhesiv         ###   ########.fr       */
+/*   Created: 2020/06/06 22:08:38 by oadhesiv          #+#    #+#             */
+/*   Updated: 2020/06/06 22:08:58 by oadhesiv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "quaterion.h"
+
+/*
+** http://www.opengl-tutorial.org/assets/faq_quaternions/index.html
+*/
 
 t_quaterion	quaternion_new(float angle_x, float angle_y, float angle_z)
 {
@@ -50,15 +54,15 @@ t_matrix_4	quaternion_to_matrix(t_const_quaterion self)
 	h[0] = self[2] * self[3];
 	ret = (float *)ft_memalloc(sizeof(float) * 16);
 	ret == 0 ? exit(ENOMEM) : 0;
-	ret[0] = 1 - 2 * ( h[4] + h[1] );
-	ret[4] =     2 * ( h[7] - h[0] );
-	ret[8] =     2 * ( h[6] + h[2] );
-	ret[1] =     2 * ( h[7] + h[0] );
-	ret[5] = 1 - 2 * ( h[8] + h[1] );
-	ret[9] =     2 * ( h[3] - h[5] );
-	ret[2] =     2 * ( h[6] - h[2] );
-	ret[6] =     2 * ( h[3] + h[5] );
-	ret[10] = 1 - 2 * ( h[8] + h[4] );
+	ret[0] = 1 - 2 * (h[4] + h[1]);
+	ret[4] = 2 * (h[7] - h[0]);
+	ret[8] = 2 * (h[6] + h[2]);
+	ret[1] = 2 * (h[7] + h[0]);
+	ret[5] = 1 - 2 * (h[8] + h[1]);
+	ret[9] = 2 * (h[3] - h[5]);
+	ret[2] = 2 * (h[6] - h[2]);
+	ret[6] = 2 * (h[3] + h[5]);
+	ret[10] = 1 - 2 * (h[8] + h[4]);
 	ret[15] = 1;
 	return (ret);
 }

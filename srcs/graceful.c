@@ -14,7 +14,6 @@
 
 void	graceful(size_t reason, const char *msg)
 {
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd("\n", 2);
+	ft_putendl_fd(msg, 2);
 	exit(reason);
 }
