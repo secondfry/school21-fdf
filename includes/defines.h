@@ -24,6 +24,8 @@
 # define M_PI_4F 0.785398163397448309615660845819875721f
 # define M_SQRT2_F 1.41421356237309504880168872420969808f
 # define M_SQRT1_2_F 0.707106781186547524400844362104849039f
+# define SSIZE_T_MAX ((0ul - 1ul) >> 1ul)
+# define SSIZE_T_MIN (SSIZE_T_MAX + 1ul)
 
 # define EINVAL 22
 
@@ -63,6 +65,7 @@ typedef struct		s_fdf
 	size_t		cols;
 	size_t		rows;
 	size_t		height;
+	ssize_t		floor;
 }					t_fdf;
 
 # define FLAG_INVALIDATE_LOCAL_NORMALIZATION	1u << 0u

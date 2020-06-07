@@ -24,8 +24,7 @@ typedef struct	s_i
 	size_t		d;
 	size_t		x;
 	size_t		y;
-	size_t		z;
-	size_t		z_max;
+	ssize_t		z;
 }				t_i;
 
 void			check_file(char *filename);

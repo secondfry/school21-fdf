@@ -17,23 +17,25 @@ size_t	dots_in_line(char *line, ssize_t *out)
 	char	*endptr;
 	char	**elems;
 	size_t	i;
-	ssize_t	h;
-	ssize_t	h_max;
+	ssize_t	h[3];
 
-	h_max = 0;
+	h[0] = SSIZE_T_MIN;
+	h[1] = SSIZE_T_MAX;
 	elems = ft_strsplit(line, ' ');
 	i = 0;
 	while (elems[i])
 	{
-		h = ft_strtol(elems[i], &endptr, 10);
-		h_max = h > h_max ? h : h_max;
+		h[2] = ft_strtol(elems[i], &endptr, 10);
+		h[0] = h[2] > h[0] ? h[2] : h[0];
+		h[1] = h[2] < h[1] ? h[2] : h[1];
 		if (elems[i] == endptr)
 			graceful(EINVAL, "Provide valid map, please.");
 		ft_memdel((void**)(elems + i));
 		i++;
 	}
 	ft_memdel((void**)&elems);
-	*out = h_max;
+	*out = h[0];
+	*(out + 1) = h[1];
 	return (i);
 }
 
@@ -42,15 +44,17 @@ void	scan_file(t_fdf *fdf, char *filename)
 	int		fd;
 	char	*line;
 	size_t	dots;
-	ssize_t	h[2];
+	ssize_t	h[4];
 
 	fd = open(filename, O_RDONLY);
 	fd == -1 ? graceful(EINVAL, "Provide valid file argument, please.") : 0;
-	h[1] = 0;
+	h[2] = SSIZE_T_MIN;
+	h[3] = SSIZE_T_MAX;
 	while (get_next_line(fd, &line) > 0)
 	{
 		dots = dots_in_line(line, h);
-		h[1] = h[0] > h[1] ? h[0] : h[1];
+		h[2] = h[0] > h[2] ? h[0] : h[2];
+		h[3] = h[1] < h[3] ? h[1] : h[3];
 		fdf->point_count += dots;
 		if ((fdf->cols != 0 && fdf->cols != dots) || dots == 0)
 			graceful(EINVAL, "Provide valid map, please.");
@@ -62,7 +66,8 @@ void	scan_file(t_fdf *fdf, char *filename)
 	fdf->cols == 0 ? graceful(EINVAL, "Provide valid map, please.") : 0;
 	fd = close(fd);
 	fd == -1 ? graceful(EINVAL, "Close failed!") : 0;
-	fdf->height = h[1];
+	fdf->height = h[2] - h[3];
+	fdf->floor = h[3];
 }
 
 void	fill_line(t_fdf *fdf, char *line, t_i *i)
@@ -74,9 +79,10 @@ void	fill_line(t_fdf *fdf, char *line, t_i *i)
 	while (dots[i->x])
 	{
 		i->z = ft_atoi(dots[i->x]);
-		i->z_max = i->z_max > i->z ? i->z_max : i->z;
 		fdf->points[i->d] = vector_new(i->x, -1.f * i->y, i->z, 1.f);
-		fdf->heights[i->d] = fdf->height == 0 ? 230 : 230 * i->z / fdf->height;
+		fdf->heights[i->d] = fdf->height == 0
+			? 230
+			: 230 * (i->z - fdf->floor) / fdf->height;
 		ft_memdel((void**)dots + i->x);
 		i->x++;
 		i->d++;
@@ -99,5 +105,4 @@ void	fill_data(t_fdf *fdf, char *filename)
 		fill_line(fdf, line, &i);
 	ft_memdel((void**)&line);
 	close(fd);
-	fdf->height = i.z_max;
 }
