@@ -37,16 +37,15 @@ long			ft_strtol(const char *str, char **endptr, int base)
 		i++;
 	if (ft_issign(str[i]))
 		sign = str[i++] == '-' ? -1 : 1;
-	if (!ft_isdigit(str[i]))
-		return (0);
-	while (str[i] && ft_isdigit(str[i]))
-	{
-		if (ret > LONG_MAX / base
-			|| (t_byte)(str[i] - 48) > LONG_MAX - ret * base)
-			return (sign == -1 ? LONG_MIN : LONG_MAX);
-		ret = ret * base + str[i] - 48;
-		i++;
-	}
+	if (ft_isdigit(str[i]))
+		while (str[i] && ft_isdigit(str[i]))
+		{
+			if (ret > LONG_MAX / base
+				|| (t_byte)(str[i] - 48) > LONG_MAX - ret * base)
+				return (sign == -1 ? LONG_MIN : LONG_MAX);
+			ret = ret * base + str[i] - 48;
+			i++;
+		}
 	*endptr = (char*)(str + i);
 	return (sign * ret);
 }
