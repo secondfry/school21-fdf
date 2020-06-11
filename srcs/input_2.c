@@ -12,7 +12,7 @@
 
 #include "input.h"
 
-size_t	dots_in_line(char *line, ssize_t *out)
+size_t			dots_in_line(char *line, ssize_t *out)
 {
 	char	*endptr;
 	char	**elems;
@@ -29,7 +29,7 @@ size_t	dots_in_line(char *line, ssize_t *out)
 		h[0] = h[2] > h[0] ? h[2] : h[0];
 		h[1] = h[2] < h[1] ? h[2] : h[1];
 		if (elems[i] == endptr)
-			graceful(EINVAL, "Provide valid map, please.");
+			graceful(EINVAL, ERR_MAP_INVALID);
 		ft_memdel((void**)(elems + i));
 		i++;
 	}
@@ -39,7 +39,16 @@ size_t	dots_in_line(char *line, ssize_t *out)
 	return (i);
 }
 
-void	scan_file(t_fdf *fdf, char *filename)
+static t_byte	is_invalid(t_fdf *fdf, size_t dots)
+{
+	t_byte	res;
+
+	res = ((fdf->cols != 0 && fdf->cols != dots) || dots == 0) ? 1 : 0;
+	fdf->cols = dots;
+	return (res);
+}
+
+void			scan_file(t_fdf *fdf, char *filename)
 {
 	int		fd;
 	char	*line;
@@ -47,7 +56,7 @@ void	scan_file(t_fdf *fdf, char *filename)
 	ssize_t	h[4];
 
 	fd = open(filename, O_RDONLY);
-	fd == -1 ? graceful(EINVAL, "Provide valid file argument, please.") : 0;
+	fd == -1 ? graceful(EINVAL, ERR_OPEN) : 0;
 	h[2] = SSIZE_T_MIN;
 	h[3] = SSIZE_T_MAX;
 	while (get_next_line(fd, &line) > 0)
@@ -56,21 +65,19 @@ void	scan_file(t_fdf *fdf, char *filename)
 		h[2] = h[0] > h[2] ? h[0] : h[2];
 		h[3] = h[1] < h[3] ? h[1] : h[3];
 		fdf->point_count += dots;
-		if ((fdf->cols != 0 && fdf->cols != dots) || dots == 0)
-			graceful(EINVAL, "Provide valid map, please.");
-		fdf->cols = dots;
+		is_invalid(fdf, dots) ? graceful(EINVAL, ERR_MAP_INVALID) : 0;
 		fdf->rows++;
 		ft_memdel((void**)&line);
 	}
 	ft_memdel((void**)&line);
-	fdf->cols == 0 ? graceful(EINVAL, "Provide valid map, please.") : 0;
+	fdf->cols == 0 ? graceful(EINVAL, ERR_MAP_INVALID) : 0;
 	fd = close(fd);
-	fd == -1 ? graceful(EINVAL, "Close failed!") : 0;
+	fd == -1 ? graceful(EINVAL, ERR_CLOSE) : 0;
 	fdf->height = h[2] - h[3];
 	fdf->floor = h[3];
 }
 
-void	fill_line(t_fdf *fdf, char *line, t_i *i)
+void			fill_line(t_fdf *fdf, char *line, t_i *i)
 {
 	char	**dots;
 
@@ -92,14 +99,14 @@ void	fill_line(t_fdf *fdf, char *line, t_i *i)
 	ft_memdel((void**)&line);
 }
 
-void	fill_data(t_fdf *fdf, char *filename)
+void			fill_data(t_fdf *fdf, char *filename)
 {
 	int		fd;
 	char	*line;
 	t_i		i;
 
 	fd = open(filename, O_RDONLY);
-	fd == -1 ? graceful(EINVAL, "Provide valid file argument, please.") : 0;
+	fd == -1 ? graceful(EINVAL, ERR_OPEN) : 0;
 	ft_bzero(&i, sizeof(size_t) * 5);
 	while (get_next_line(fd, &line) > 0)
 		fill_line(fdf, line, &i);
