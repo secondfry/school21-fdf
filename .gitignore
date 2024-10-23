@@ -592,3 +592,5 @@ $RECYCLE.BIN/
 /assets/
 fdf
 *.swiftmodule
+*.swiftdoc
+*.swiftsourceinfo
