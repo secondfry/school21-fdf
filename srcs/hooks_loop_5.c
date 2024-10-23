@@ -46,7 +46,7 @@ void	force_isometric(t_fdf *fdf)
 
 int		loop_key_hook(int keycode, t_fdf *fdf)
 {
-	keycode == KEY_ESC ? loop_destroy_hook(fdf) : 0;
+	keycode == KEY_ESC ? loop_destroy_hook() : 0;
 	keycode == KEY_W ? move_camera(fdf, keycode) : 0;
 	keycode == KEY_S ? move_camera(fdf, keycode) : 0;
 	keycode == KEY_Q ? move_camera(fdf, keycode) : 0;
